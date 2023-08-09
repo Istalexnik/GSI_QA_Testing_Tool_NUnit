@@ -15,5 +15,16 @@ namespace GSI_QA_Testing_Tool_NUnit
             var jsExecutor = (IJavaScriptExecutor)driver;
             jsExecutor.ExecuteScript("arguments[0].click();", element);
         }
+
+        public static void Click(this By by)
+        {
+            IWebDriver? driver = BasePage.CurrentDriver;
+            if (driver == null)
+            {
+                throw new InvalidOperationException("Driver is not initialized.");
+            }
+            IWebElement element = driver.FindElement(by);
+            element.Click();
+        }
     }
 }

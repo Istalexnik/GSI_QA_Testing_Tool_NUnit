@@ -16,7 +16,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_010_LoginIntroPage ClickLoginButton()
         {
-            btnLogin.WaitForElementToBeClickable(Driver).Click();
+            btnLogin.Click();
             return new UI_010_LoginIntroPage(Driver);
         }
 
