@@ -15,7 +15,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_010_LoginIntroPage ClickLoginButton()
         {
-            btnLogin.Click();
+            btnLogin.IsPresent()?.Click();
             return new UI_010_LoginIntroPage();
         }
 

@@ -12,7 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Utilities
 
         public static string GenerateUniqueSSN()
         {
-            return $"{random.Next(100, 999)}-{random.Next(10, 99)}-{random.Next(1000, 9999)}";
+            return $"{random.Next(2, 8)}{random.Next(1000, 9999)}{random.Next(1000, 9999)}";
         }
 
         public static DateTime GenerateUniqueBirthdate()

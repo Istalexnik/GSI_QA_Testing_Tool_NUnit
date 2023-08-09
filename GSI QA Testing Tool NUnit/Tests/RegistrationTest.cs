@@ -13,8 +13,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
     [TestFixture]
     public class RegistrationTest : BaseTest
     {
-
-        String ssn = DataGenerator.GenerateUniqueSSN();
+        TestData testData = new TestData();
 
         [Test]
         public void TestRegistration()
@@ -35,8 +34,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
             UI_040_SocialSecurityPage socialSecurityPage = welcomePage
                 .ClickNextButton();
             UI_045_WorkHistoryVerification workHistoryVerification = socialSecurityPage
-                .EnterSSN(ssn)
-                .ReEnterSSN(ssn)
+                .EnterSSN(testData.SSN)
+                .ReEnterSSN(testData.SSN)
                 .ClickNextButton();
         }
     }
