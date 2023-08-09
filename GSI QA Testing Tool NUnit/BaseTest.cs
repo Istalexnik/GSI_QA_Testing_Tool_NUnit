@@ -18,6 +18,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         public void TestSetup()
         {
             Driver = new ChromeDriver();
+            BasePage.CurrentDriver = Driver; // <-- This sets the static driver in BasePage.
             Driver.Manage().Window.Maximize();
             testData = new TestData();
             Driver.Navigate().GoToUrl(testData.Url);

@@ -11,18 +11,17 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By radFilingUI = By.CssSelector("label[for='ctl00_Main_content_radFilingUI_0']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
-        public UI_030_UnemploymentInsuranceCompemsation(IWebDriver driver) : base(driver) { }
 
         public UI_030_UnemploymentInsuranceCompemsation ClickAttemptingToFileRButton()
         {
-            radFilingUI.WaitForElementToBeClickable().Click();
+            radFilingUI.Click();
             return this;
         }
 
         public UI_035_WelcomePage ClickNextButton()
         {
-            btnNext.WaitForElementToBeClickable().Click();
-            return new UI_035_WelcomePage(Driver);
+            btnNext.Click();
+            return new UI_035_WelcomePage();
         }
 
     }

@@ -13,12 +13,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
     [TestFixture]
     public class RegistrationTest : BaseTest
     {
+
         String ssn = DataGenerator.GenerateUniqueSSN();
 
         [Test]
         public void TestRegistration()
         {
-            UI_010_LoginIntroPage loginIntroPage = new UI_005_HomePage(Driver)
+            UI_010_LoginIntroPage loginIntroPage = new UI_005_HomePage()
                 .ClickLoginButton();
             UI_015_EqualOpportunity equalOpportunity = loginIntroPage
                 .ClickIndividualRegistrationButton();

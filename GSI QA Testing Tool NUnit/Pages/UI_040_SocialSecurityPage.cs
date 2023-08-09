@@ -13,24 +13,23 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtSSN = By.Id("ctl00_Main_content_Wizard1_ucSSN_txtSSN");
         By txtSSNReenter = By.Id("ctl00_Main_content_Wizard1_ucSSN_txtSSNReenter");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");      
-        public UI_040_SocialSecurityPage(IWebDriver driver) : base(driver) { }
 
         public UI_040_SocialSecurityPage EnterSSN(String ssn)
         {
-            txtSSN.WaitForElementToBeClickable().SendKeys(ssn);
+            txtSSN.SendKeys(ssn);
             return this;
         }
 
         public UI_040_SocialSecurityPage ReEnterSSN(String ssn)
         {
-            txtSSNReenter.WaitForElementToBeClickable().SendKeys(ssn);
+            txtSSNReenter.SendKeys(ssn);
             return this;
         }
 
         public UI_045_WorkHistoryVerification ClickNextButton()
         {
-            btnNext.WaitForElementToBeClickable().Click();
-            return new UI_045_WorkHistoryVerification(Driver);
+            btnNext.Click();
+            return new UI_045_WorkHistoryVerification();
         }
     }
 }

@@ -5,16 +5,17 @@ using System.Collections.ObjectModel;
 
 namespace GSI_QA_Testing_Tool_NUnit
 {
-    public static class WaitHelpers
+    public static class SeleniumExtensions
     {
         private static IWebDriver Driver => BasePage.CurrentDriver ?? throw new NullReferenceException("Driver is not initialized.");
 
+        // WaitHelpers methods
         public static WebDriverWait GetWait(int? waitTimeInSeconds = null)
         {
             return new WebDriverWait(Driver, TimeSpan.FromSeconds(waitTimeInSeconds ?? 10));
         }
 
-        public static IWebElement WaitForElementToBeClickable(this By locator, int? waitTimeInSeconds = null)
+        public static By WaitForElementToBeClickable(this By locator, int? waitTimeInSeconds = null)
         {
             var wait = GetWait(waitTimeInSeconds);
             IWebElement? element = null;
@@ -36,10 +37,10 @@ namespace GSI_QA_Testing_Tool_NUnit
                 throw new NoSuchElementException($"Element with locator {locator} was not clickable");
             }
 
-            return element;
+            return locator;
         }
 
-        public static IWebElement WaitForElementToBeVisible(this By locator, int? waitTimeInSeconds = null)
+        public static By WaitForElementToBeVisible(this By locator, int? waitTimeInSeconds = null)
         {
             var wait = GetWait(waitTimeInSeconds);
             ReadOnlyCollection<IWebElement>? elements = null;
@@ -54,10 +55,10 @@ namespace GSI_QA_Testing_Tool_NUnit
                 throw new NoSuchElementException($"Element with locator {locator} was not visible");
             }
 
-            return elements[0];
+            return locator;
         }
 
-        public static IWebElement WaitForElementToBeStaleAndRefind(this By locator, int? waitTimeInSeconds = null)
+        public static By WaitForElementToBeStaleAndRefind(this By locator, int? waitTimeInSeconds = null)
         {
             var wait = GetWait(waitTimeInSeconds);
             IWebElement element = Driver.FindElement(locator);
@@ -76,7 +77,49 @@ namespace GSI_QA_Testing_Tool_NUnit
             });
 
             // Re-find the element after it has become stale
-            return Driver.FindElement(locator);
+            return locator;
         }
+
+        // WebElementExtensions methods
+        public static void JSClick(this By by)
+        {
+            IWebElement element = Driver.FindElement(by);
+            var driver = ((IWrapsDriver)element).WrappedDriver;
+            var jsExecutor = (IJavaScriptExecutor)driver;
+
+            jsExecutor.ExecuteScript("arguments[0].click();", element);
+        }
+
+        public static void Click(this By by)
+        {
+            IWebDriver? driver = BasePage.CurrentDriver;
+            if (driver == null)
+            {
+                throw new InvalidOperationException("Driver is not initialized.");
+            }
+            IWebElement element = driver.FindElement(by);
+            element.Click();
+        }
+
+        public static void ClickIfPresent(this By locator)
+        {
+            if (locator.IsPresent())
+            {
+                Driver.FindElement(locator).Click();
+            }
+        }
+        public static bool IsPresent(this By locator)
+        {
+            return Driver.FindElements(locator).Count > 0;
+        }
+
+
+        public static void SendKeys(this By locator, string text)
+        {
+            IWebElement element = Driver.FindElement(locator);
+            element.SendKeys(text);
+        }
+
+
     }
 }

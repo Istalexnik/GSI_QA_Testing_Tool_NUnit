@@ -11,12 +11,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By btnRegistration = By.Id("btnIndRegistration");
 
-        public UI_010_LoginIntroPage(IWebDriver driver) : base(driver) { }
 
         public UI_015_EqualOpportunity ClickIndividualRegistrationButton()
         {
-            btnRegistration.WaitForElementToBeClickable().JSClick();
-            return new UI_015_EqualOpportunity(Driver);
+            btnRegistration.JSClick();
+            return new UI_015_EqualOpportunity();
         }
 
     }

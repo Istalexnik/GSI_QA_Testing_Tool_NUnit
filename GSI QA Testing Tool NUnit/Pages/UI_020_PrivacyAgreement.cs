@@ -11,12 +11,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By btnAgree = By.Id("ctl00_Main_content_ucPrivacyAgreement_btnAgree");
 
-        public UI_020_PrivacyAgreement(IWebDriver driver) : base(driver) { }
 
         public UI_025_IndividualRegistrationType ClickIAgreeButton()
         {
-            btnAgree.WaitForElementToBeClickable().Click();
-            return new UI_025_IndividualRegistrationType(Driver);
+            btnAgree.Click();
+            return new UI_025_IndividualRegistrationType();
         }
     }
 }

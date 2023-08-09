@@ -12,12 +12,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
        
         By btnLogin = By.Id("btnguestlogina");
 
-        public UI_005_HomePage(IWebDriver driver) : base(driver) { }
 
         public UI_010_LoginIntroPage ClickLoginButton()
         {
             btnLogin.Click();
-            return new UI_010_LoginIntroPage(Driver);
+            return new UI_010_LoginIntroPage();
         }
 
     }
