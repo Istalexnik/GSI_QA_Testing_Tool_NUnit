@@ -1,5 +1,6 @@
 ﻿using GSI_QA_Testing_Tool_NUnit.Data;
 using GSI_QA_Testing_Tool_NUnit.Pages;
+using GSI_QA_Testing_Tool_NUnit.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,30 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
     [TestFixture]
     public class RegistrationTest : BaseTest
     {
+        String ssn = DataGenerator.GenerateUniqueSSN();
+
         [Test]
         public void TestRegistration()
         {
-            UI_010_LoginIntroPage loginIntroPage = new UI_005_HomePage(Driver).ClickLoginButton();
-            UI_015_EqualOpportunity equalOpportunity = loginIntroPage.ClickIndividualregistrationButton();
-            UI_020_PrivacyAgreement privacyAgreement = equalOpportunity.ClickIAgreeButton();
-            UI_025_IndividualRegistrationType individualRegistrationType = privacyAgreement.ClickIAgreeButton();
-
+            UI_010_LoginIntroPage loginIntroPage = new UI_005_HomePage(Driver)
+                .ClickLoginButton();
+            UI_015_EqualOpportunity equalOpportunity = loginIntroPage
+                .ClickIndividualRegistrationButton();
+            UI_020_PrivacyAgreement privacyAgreement = equalOpportunity
+                .ClickIAgreeButton();
+            UI_025_IndividualRegistrationType individualRegistrationType = privacyAgreement
+                .ClickIAgreeButton();
+            UI_030_UnemploymentInsuranceCompemsation unemploymentInsuranceCompemsation = individualRegistrationType
+                .ClickComprehensiveRegistrationLink();
+            UI_035_WelcomePage welcomePage = unemploymentInsuranceCompemsation
+                .ClickAttemptingToFileRButton()
+                .ClickNextButton();
+            UI_040_SocialSecurityPage socialSecurityPage = welcomePage
+                .ClickNextButton();
+            UI_045_WorkHistoryVerification workHistoryVerification = socialSecurityPage
+                .EnterSSN(ssn)
+                .ReEnterSSN(ssn)
+                .ClickNextButton();
         }
     }
 }

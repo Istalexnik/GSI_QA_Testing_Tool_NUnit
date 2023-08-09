@@ -76,5 +76,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             // Re-find the element after it has become stale
             return driver.FindElement(locator);
         }
+
+
     }
 }

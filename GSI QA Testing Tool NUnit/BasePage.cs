@@ -22,11 +22,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             return Driver.FindElements(locator).Count > 0;
         }
 
-
     }
-
-
-
 
 
 }
