@@ -7,14 +7,16 @@ namespace GSI_QA_Testing_Tool_NUnit
 {
     public static class WaitHelpers
     {
-        public static WebDriverWait GetWait(IWebDriver driver, int? waitTimeInSeconds = null)
+        private static IWebDriver Driver => BasePage.CurrentDriver ?? throw new NullReferenceException("Driver is not initialized.");
+
+        public static WebDriverWait GetWait(int? waitTimeInSeconds = null)
         {
-            return new WebDriverWait(driver, TimeSpan.FromSeconds(waitTimeInSeconds ?? 10));
+            return new WebDriverWait(Driver, TimeSpan.FromSeconds(waitTimeInSeconds ?? 10));
         }
 
-        public static IWebElement WaitForElementToBeClickable(this By locator, IWebDriver driver, int? waitTimeInSeconds = null)
+        public static IWebElement WaitForElementToBeClickable(this By locator, int? waitTimeInSeconds = null)
         {
-            var wait = GetWait(driver, waitTimeInSeconds);
+            var wait = GetWait(waitTimeInSeconds);
             IWebElement? element = null;
             wait.Until(d =>
             {
@@ -37,9 +39,9 @@ namespace GSI_QA_Testing_Tool_NUnit
             return element;
         }
 
-        public static IWebElement WaitForElementToBeVisible(this By locator, IWebDriver driver, int? waitTimeInSeconds = null)
+        public static IWebElement WaitForElementToBeVisible(this By locator, int? waitTimeInSeconds = null)
         {
-            var wait = GetWait(driver, waitTimeInSeconds);
+            var wait = GetWait(waitTimeInSeconds);
             ReadOnlyCollection<IWebElement>? elements = null;
             wait.Until(d =>
             {
@@ -55,10 +57,10 @@ namespace GSI_QA_Testing_Tool_NUnit
             return elements[0];
         }
 
-        public static IWebElement WaitForElementToBeStaleAndRefind(this By locator, IWebDriver driver, int? waitTimeInSeconds = null)
+        public static IWebElement WaitForElementToBeStaleAndRefind(this By locator, int? waitTimeInSeconds = null)
         {
-            var wait = GetWait(driver, waitTimeInSeconds);
-            IWebElement element = driver.FindElement(locator);
+            var wait = GetWait(waitTimeInSeconds);
+            IWebElement element = Driver.FindElement(locator);
             wait.Until(d =>
             {
                 try
@@ -74,9 +76,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             });
 
             // Re-find the element after it has become stale
-            return driver.FindElement(locator);
+            return Driver.FindElement(locator);
         }
-
-
     }
 }

@@ -14,7 +14,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_020_PrivacyAgreement ClickIAgreeButton()
         {
-            btnAgree.WaitForElementToBeClickable(Driver).Click();
+            btnAgree.WaitForElementToBeClickable().Click();
             return new UI_020_PrivacyAgreement(Driver);
         }
     }

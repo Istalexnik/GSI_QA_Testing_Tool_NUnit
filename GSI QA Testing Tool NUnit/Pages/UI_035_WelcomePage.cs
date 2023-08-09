@@ -14,7 +14,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_040_SocialSecurityPage ClickNextButton()
         {
-            btnNext.WaitForElementToBeClickable(Driver).Click();
+            btnNext.WaitForElementToBeClickable().Click();
             return new UI_040_SocialSecurityPage(Driver);
         }
     }

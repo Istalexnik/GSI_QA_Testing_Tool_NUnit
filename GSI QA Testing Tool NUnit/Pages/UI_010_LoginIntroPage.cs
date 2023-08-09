@@ -15,7 +15,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_015_EqualOpportunity ClickIndividualRegistrationButton()
         {
-            btnRegistration.WaitForElementToBeClickable(Driver).JSClick();
+            btnRegistration.WaitForElementToBeClickable().JSClick();
             return new UI_015_EqualOpportunity(Driver);
         }
 

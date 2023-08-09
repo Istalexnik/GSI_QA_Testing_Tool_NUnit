@@ -14,7 +14,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_030_UnemploymentInsuranceCompemsation ClickComprehensiveRegistrationLink()
         {
-            lnkRegistration.WaitForElementToBeClickable(Driver).JSClick();
+            lnkRegistration.WaitForElementToBeClickable().JSClick();
             return new UI_030_UnemploymentInsuranceCompemsation(Driver);
         }
     }

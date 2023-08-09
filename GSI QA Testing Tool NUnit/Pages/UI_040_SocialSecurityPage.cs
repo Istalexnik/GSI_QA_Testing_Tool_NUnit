@@ -17,19 +17,19 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_040_SocialSecurityPage EnterSSN(String ssn)
         {
-            txtSSN.WaitForElementToBeClickable(Driver).SendKeys(ssn);
+            txtSSN.WaitForElementToBeClickable().SendKeys(ssn);
             return this;
         }
 
         public UI_040_SocialSecurityPage ReEnterSSN(String ssn)
         {
-            txtSSNReenter.WaitForElementToBeClickable(Driver).SendKeys(ssn);
+            txtSSNReenter.WaitForElementToBeClickable().SendKeys(ssn);
             return this;
         }
 
         public UI_045_WorkHistoryVerification ClickNextButton()
         {
-            btnNext.WaitForElementToBeClickable(Driver).Click();
+            btnNext.WaitForElementToBeClickable().Click();
             return new UI_045_WorkHistoryVerification(Driver);
         }
     }

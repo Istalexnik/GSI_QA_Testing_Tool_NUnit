@@ -15,13 +15,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_030_UnemploymentInsuranceCompemsation ClickAttemptingToFileRButton()
         {
-            radFilingUI.WaitForElementToBeClickable(Driver).Click();
+            radFilingUI.WaitForElementToBeClickable().Click();
             return this;
         }
 
         public UI_035_WelcomePage ClickNextButton()
         {
-            btnNext.WaitForElementToBeClickable(Driver).Click();
+            btnNext.WaitForElementToBeClickable().Click();
             return new UI_035_WelcomePage(Driver);
         }
 

@@ -15,7 +15,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_025_IndividualRegistrationType ClickIAgreeButton()
         {
-            btnAgree.WaitForElementToBeClickable(Driver).Click();
+            btnAgree.WaitForElementToBeClickable().Click();
             return new UI_025_IndividualRegistrationType(Driver);
         }
     }
