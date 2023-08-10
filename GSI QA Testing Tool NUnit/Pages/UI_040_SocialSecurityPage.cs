@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_040_SocialSecurityPage : BasePage
+    public class UI_040_SocialSecurityPage 
     {
         By txtSSN = By.Id("ctl00_Main_content_Wizard1_ucSSN_txtSSN");
         By txtSSNReenter = By.Id("ctl00_Main_content_Wizard1_ucSSN_txtSSNReenter");

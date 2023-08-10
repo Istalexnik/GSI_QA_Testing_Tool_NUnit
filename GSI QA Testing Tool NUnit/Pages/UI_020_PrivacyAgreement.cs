@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_020_PrivacyAgreement : BasePage
+    public class UI_020_PrivacyAgreement
     {
         By btnAgree = By.Id("ctl00_Main_content_ucPrivacyAgreement_btnAgree");
 

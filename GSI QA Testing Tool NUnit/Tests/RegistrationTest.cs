@@ -37,6 +37,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
                 .EnterSSN(testData.SSN)
                 .ReEnterSSN(testData.SSN)
                 .ClickNextButton();
+            UI_050_StatesYouWorkedIn statesYouWorkedIn = workHistoryVerification
+                .ClickDidYouWorkYesRButton()
+                .ClickNextButton();
+            UI_055_FederalService federalService = statesYouWorkedIn
+                .ClickWorkedInTwoStatesRButton()
+                .ClickClaimedUnemploymentRButton()
+                .ClickNextButton();
         }
     }
 }

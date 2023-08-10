@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_010_LoginIntroPage : BasePage
+    public class UI_010_LoginIntroPage
     {
         By btnRegistration = By.Id("btnIndRegistration");
 

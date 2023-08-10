@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_015_EqualOpportunity : BasePage
+    public class UI_015_EqualOpportunity
     {
         By btnAgree = By.Id("ctl00_Main_content_btnAgree");
 

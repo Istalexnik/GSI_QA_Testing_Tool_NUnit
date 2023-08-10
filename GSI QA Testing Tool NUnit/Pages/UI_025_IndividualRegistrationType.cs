@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_025_IndividualRegistrationType : BasePage
+    public class UI_025_IndividualRegistrationType 
     {
         By lnkRegistration = By.Id("ctl00_Main_content_lnkCompleteHeader");
 

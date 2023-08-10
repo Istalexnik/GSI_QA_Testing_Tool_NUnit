@@ -19,7 +19,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             // Example: Return a different timeout for a specific environment
             if (Environment.GetEnvironmentVariable("Env") == "QA")
             {
-                return 30;
+                return 15;
             }
             return DefaultTimeoutInSeconds;
         }
@@ -242,9 +242,9 @@ namespace GSI_QA_Testing_Tool_NUnit
                     {
                         element.Click();
                     }
-                    catch (Exception ex) // Catch specific exceptions as needed
+                    catch (WebDriverTimeoutException)
                     {
-                        // Log error, continue with the loop, or take another action
+                        throw new InvalidOperationException($"Element with locator {locator} was not refound within the given wait time.");
                     }
                 }
             }
