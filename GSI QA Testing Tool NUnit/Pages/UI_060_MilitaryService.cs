@@ -7,22 +7,21 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_055_FederalService
+    public class UI_060_MilitaryService
     {
-        By rbFederalCivilianEmployee = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblFederalCivilianEmployee_1']");
+        By rbMilitaryService = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblMilitaryService_1']");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");
 
-        public UI_055_FederalService ClickrbFederalCivilianEmployee()
+        public UI_060_MilitaryService ClickrbMilitaryService()
         {
-            rbFederalCivilianEmployee.Click();
+            rbMilitaryService.Click();
             return this;
         }
 
-        public UI_060_MilitaryService ClickbtnNext()
+        public UI_065_LoginInformation ClickbtnNext()
         {
             btnNext.Click();
-            return new UI_060_MilitaryService();
+            return new UI_065_LoginInformation();
         }
-
     }
 }

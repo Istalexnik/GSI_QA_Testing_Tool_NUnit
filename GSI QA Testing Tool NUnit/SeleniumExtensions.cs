@@ -97,7 +97,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         }
 
         /// <summary>
-        /// Waits for the element specified by the locator to become stale and then refinds it.
+        /// Waits for the element specified by the locator to become stale and then waits for it to reappear.
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
         /// <param name="waitTimeInSeconds">Optional timeout in seconds. Uses default if not provided.</param>
@@ -105,39 +105,53 @@ namespace GSI_QA_Testing_Tool_NUnit
         public static By WaitForElementToBeStaleAndRefind(this By locator, int? waitTimeInSeconds = null)
         {
             var wait = GetWait(waitTimeInSeconds);
-            IWebElement originalElement = Driver.FindElement(locator);
+
+            IWebElement? originalElement = null;
+
             try
             {
-                wait.Until(d =>
+                originalElement = Driver.FindElement(locator);
+            }
+            catch (NoSuchElementException)
+            {
+                // If the element doesn't exist at the start, we'll just move on. 
+            }
+
+            // If we found the element originally, wait for it to become stale.
+            if (originalElement != null)
+            {
+                wait.Until(driver =>
                 {
                     try
                     {
-                        // Attempt to interact with the element
-                        var isDisplayed = originalElement.Displayed;
-                        return false; // If no exception, the element is not stale, return false
+                        // Attempting to access any property, like Displayed, will throw if the element is stale
+                        bool dummy = originalElement.Displayed;
+                        return false;
                     }
                     catch (StaleElementReferenceException)
                     {
-                        return true; // If an exception is thrown, the element is stale, return true
+                        // This is what we want; the element is now stale!
+                        return true;
                     }
                 });
+            }
 
-                // Re-find the element after it has become stale
-                wait.Until(d => d.FindElements(locator).Count > 0);
-            }
-            catch (WebDriverTimeoutException)
-            {
-                throw new InvalidOperationException($"Element with locator {locator} was not refound within the given wait time.");
-            }
+            // Wait for the element to appear again (re-finding it)
+            wait.Until(driver => driver.FindElements(locator).Count > 0);
 
             return locator;
         }
+
+
+
+
+
 
         /// <summary>
         /// Clicks on the element specified by the locator using JavaScript.
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
-        public static void JSClick(this By locator)
+        public static By JSClick(this By locator)
         {
             try
             {
@@ -153,13 +167,14 @@ namespace GSI_QA_Testing_Tool_NUnit
             {
                 locator.WaitForElementToBeStaleAndRefind().JSClick();
             }
+            return locator;
         }
 
         /// <summary>
         /// Clicks on the element specified by the locator.
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
-        public static void Click(this By locator)
+        public static By Click(this By locator)
         {
             try
             {
@@ -173,6 +188,11 @@ namespace GSI_QA_Testing_Tool_NUnit
             {
                 locator.WaitForElementToBeStaleAndRefind().Click();
             }
+            catch (ElementNotInteractableException)
+            {
+                locator.JSClick();
+            }
+            return locator;
         }
 
         /// <summary>
@@ -197,7 +217,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
         /// <param name="text">The text to be sent to the element.</param>
-        public static void SendKeys(this By locator, string text)
+        public static By SendKeys(this By locator, string text)
         {
             try
             {
@@ -208,6 +228,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             {
                 throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "SendKeys()"));
             }
+            return locator;
         }
 
         /// <summary>
@@ -231,7 +252,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// Clicks on all visible elements specified by the locator.
         /// </summary>
         /// <param name="locator">The By locator for the elements.</param>
-        public static void ClickAllVisible(this By locator)
+        public static By ClickAllVisible(this By locator)
         {
             var elements = Driver.FindElements(locator);
             foreach (var element in elements)
@@ -248,6 +269,7 @@ namespace GSI_QA_Testing_Tool_NUnit
                     }
                 }
             }
+            return locator;
         }
 
         /// <summary>
@@ -257,10 +279,18 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// <param name="text">The visible text of the option to be selected.</param>
         /// <exception cref="NoSuchElementException">Thrown if the dropdown element specified by the locator is not found.</exception>
         /// <exception cref="WebDriverException">Thrown if there is an error in the WebDriver, such as if the option with the given text is not found in the dropdown.</exception>
-        public static void SelectDropdownByText(this By locator, string text)
+        public static By SelectDropdownByText(this By locator, string text)
         {
             var dropdown = new SelectElement(Driver.FindElement(locator));
             dropdown.SelectByText(text);
+            return locator;
+        }
+
+        public static By SelectDropdownByIndex(this By locator, int index)
+        {
+            var dropdown = new SelectElement(Driver.FindElement(locator));
+            dropdown.SelectByIndex(index);
+            return locator;
         }
     }
 }

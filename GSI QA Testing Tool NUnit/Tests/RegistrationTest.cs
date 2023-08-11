@@ -44,6 +44,26 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
                 .ClickWorkedInTwoStatesRButton()
                 .ClickClaimedUnemploymentRButton()
                 .ClickNextButton();
+            UI_060_MilitaryService militaryService = federalService
+                .ClickrbFederalCivilianEmployee()
+                .ClickbtnNext();
+            UI_065_LoginInformation loginInformation = militaryService
+                .ClickrbMilitaryService()
+                .ClickbtnNext();
+            UI_070_NamePage namePage = loginInformation
+                .EnterUsername(testData.Username)
+                .EnterPassword(testData.Password)
+                .EnterPassword2(testData.Password)
+                .SelectSecurityQuestion(1)
+                .EnterSecurityResponse(testData.SecurityResponse)
+                .EnterZip(testData.Zip)
+                .ClickrbAuthorizedToWorke()
+                .EntertxtEmail(testData.Email)
+                .EntertxtEmail2(testData.Email)
+                .EntertxtDOB(testData.DOB)
+                .ClickrbGender()
+                .ClickbtnNext();
+
         }
     }
 }
