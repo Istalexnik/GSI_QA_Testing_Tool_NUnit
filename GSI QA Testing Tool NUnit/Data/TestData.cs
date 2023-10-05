@@ -21,6 +21,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
         public static string Email { get; private set; }
         public static string Address1 { get; private set; }
         public static string Phone { get; private set; }
+        public static string JobTitle { get; private set; }
 
 
 
@@ -38,6 +39,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
             Email = Username + "@geosolinc.com";
             Address1 = "2714 Park Avenue";
             Phone = "8135647356";
+            JobTitle = "Test";
         }
 
     }

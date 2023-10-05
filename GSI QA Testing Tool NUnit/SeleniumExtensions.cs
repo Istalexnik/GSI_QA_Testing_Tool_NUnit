@@ -143,6 +143,54 @@ namespace GSI_QA_Testing_Tool_NUnit
         }
 
 
+        /// <summary>
+        /// Waits for suggestions to appear within the identified element. The function supports waiting for suggestions 
+        /// within both a dropdown (using option tags) and a div structure (using list items).
+        /// </summary>
+        /// <param name="locator">The By locator used to identify and locate the element (either a dropdown or div) containing suggestions on the webpage.</param>
+        /// <param name="waitTimeInSeconds">Optional parameter specifying the maximum time to wait for suggestions to appear. Defaults to 10 seconds if not specified.</param>
+        /// <returns>Returns the original locator of the element being checked for suggestions.</returns>
+        public static By WaitForSuggestions(By locator, int? waitTimeInSeconds = null)
+        {
+            var wait = GetWait(waitTimeInSeconds);
+
+            try
+            {
+                wait.Until(d =>
+                {
+                    IWebElement container = d.FindElement(locator);
+
+                    // Check if the container is a <select> dropdown
+                    if (container.TagName.ToLower() == "select")
+                    {
+                        var optionElements = container.FindElements(By.TagName("option"));
+                        return optionElements.Count > 1; // More than one option means suggestions are present
+                    }
+                    // Check if the container is a div structure for suggestions
+                    else if (container.GetAttribute("class").Contains("ac_results"))
+                    {
+                        var suggestionItems = container.FindElements(By.TagName("li"));
+                        return suggestionItems.Count > 0; // Presence of list items means suggestions are present
+                    }
+
+                    return false; // Default to false if neither conditions met
+                });
+            }
+            catch (WebDriverTimeoutException)
+            {
+                throw new InvalidOperationException($"Suggestions did not appear for the element with locator {locator} within the given wait time.");
+            }
+            catch (NoSuchElementException)
+            {
+                throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "WaitForSuggestionsToAppear()"));
+            }
+
+            return locator;
+        }
+
+
+
+
 
 
 
@@ -230,6 +278,34 @@ namespace GSI_QA_Testing_Tool_NUnit
             }
             return locator;
         }
+
+
+        /// <summary>
+        /// Locates an element using the provided locator and sends the specified text to it. After a delay, simulates pressing the "arrow down" and "enter" keys on the element.
+        /// </summary>
+        /// <param name="locator">The By locator used to identify and locate the element on the webpage.</param>
+        /// <param name="text">The text to be sent to the identified element.</param>
+        /// <returns>Returns the original locator.</returns>
+        public static By EnterText(this By locator, string text, By suggesstionsLocator)
+        {
+            try
+            {
+                IWebElement element = Driver.FindElement(locator);
+                element.SendKeys(text);
+
+                // Thread.Sleep(4000);
+               WaitForSuggestions(suggesstionsLocator);
+
+                element.SendKeys(Keys.ArrowDown + Keys.Enter);
+            }
+            catch (NoSuchElementException)
+            {
+                throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "SendKeys()"));
+            }
+            return locator;
+        }
+
+
 
         /// <summary>
         /// Retrieves the text of the element specified by the locator.

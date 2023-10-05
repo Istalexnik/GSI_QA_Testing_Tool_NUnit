@@ -65,6 +65,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
             new UI_115_MajorDisaster();
 
             new UI_120_LaborUnion();
+
+            new UI_125_JobTitle();
+
+            new UI_130_EthnicOrigin();
+
         }
     }
 }
