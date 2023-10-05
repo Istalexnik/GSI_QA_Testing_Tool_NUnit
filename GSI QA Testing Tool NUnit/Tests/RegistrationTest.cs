@@ -70,6 +70,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_130_EthnicOrigin();
 
+            new UI_135_MilitaryInformation();
+
+            new UI_140_PaymentInformation();
         }
     }
 }

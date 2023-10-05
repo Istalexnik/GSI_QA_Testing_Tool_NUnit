@@ -201,11 +201,11 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// <param name="locator">The By locator for the element.</param>
         public static By JSClick(this By locator)
         {
+                    var js = (IJavaScriptExecutor)Driver;
             try
             {
                 IWebElement element = Driver.FindElement(locator);
-                var jsExecutor = (IJavaScriptExecutor)Driver;
-                jsExecutor.ExecuteScript("arguments[0].click();", element);
+                js.ExecuteScript("arguments[0].click();", element);
             }
             catch (NoSuchElementException)
             {
@@ -337,7 +337,10 @@ namespace GSI_QA_Testing_Tool_NUnit
                 {
                     try
                     {
-                        element.Click();
+                        if (!element.Selected)
+                        {
+                           element.Click();
+                        }
                     }
                     catch (WebDriverTimeoutException)
                     {
