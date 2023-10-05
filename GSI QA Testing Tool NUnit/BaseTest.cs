@@ -11,17 +11,27 @@ namespace GSI_QA_Testing_Tool_NUnit
 {
     public abstract class BaseTest
     {
-        protected IWebDriver Driver { get; private set; }
-        private TestData testData;
+        protected static IWebDriver? Driver { get; private set; }
+        public static IWebDriver? CurrentDriver { get; set; }
 
         [SetUp]
-        public void TestSetup()
+        public static void TestSetup()
         {
-            Driver = new ChromeDriver();
-            BasePage.CurrentDriver = Driver; // <-- This sets the static driver in BasePage.
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+            service.HideCommandPromptWindow = true;
+
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments(new List<string> {
+        "no-sandbox",
+        $"--user-data-dir={Path.GetFullPath("C:/ChromeProfile/")}"
+    });
+            chromeOptions.AddExcludedArgument("enable-automation");
+
+
+            Driver = new ChromeDriver(service, chromeOptions);
+            CurrentDriver = Driver; // <-- This sets the static driver in BasePage.
             Driver.Manage().Window.Maximize();
-            testData = new TestData();
-            Driver.Navigate().GoToUrl(testData.Url);
+            Driver.Navigate().GoToUrl(TestData.Url);
         }
 
         [TearDown]

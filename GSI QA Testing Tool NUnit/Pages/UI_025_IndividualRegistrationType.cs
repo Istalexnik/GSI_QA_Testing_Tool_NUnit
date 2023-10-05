@@ -11,10 +11,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By lnkRegistration = By.Id("ctl00_Main_content_lnkCompleteHeader");
 
-        public UI_030_UnemploymentInsuranceCompemsation ClickComprehensiveRegistrationLink()
+        public UI_025_IndividualRegistrationType()
         {
             lnkRegistration.JSClick();
-            return new UI_030_UnemploymentInsuranceCompemsation();
         }
     }
 }

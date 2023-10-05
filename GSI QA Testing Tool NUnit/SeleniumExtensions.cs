@@ -7,7 +7,7 @@ namespace GSI_QA_Testing_Tool_NUnit
 {
     public static class SeleniumExtensions
     {
-        private static IWebDriver Driver => BasePage.CurrentDriver ?? throw new NullReferenceException("Driver is not initialized.");
+        private static IWebDriver Driver => BaseTest.CurrentDriver ?? throw new NullReferenceException("Driver is not initialized.");
 
         /// <summary>
         /// Default timeout value used when waiting for an element or condition.
@@ -286,10 +286,17 @@ namespace GSI_QA_Testing_Tool_NUnit
             return locator;
         }
 
-        public static By SelectDropdownByIndex(this By locator, int index)
+        public static By SelectDropdownByIndex(this By locator, string index)
         {
             var dropdown = new SelectElement(Driver.FindElement(locator));
-            dropdown.SelectByIndex(index);
+            dropdown.SelectByIndex(int.Parse(index));
+            return locator;
+        }
+
+        public static By SelectDropdownByValue(this By locator, string value)
+        {
+            var dropdown = new SelectElement(Driver.FindElement(locator));
+            dropdown.SelectByValue(value);
             return locator;
         }
     }

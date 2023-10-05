@@ -12,16 +12,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbDidYouWork = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblWorkHistoryVerify_0']");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");
 
-        public UI_045_WorkHistoryVerification ClickDidYouWorkYesRButton()
+        public UI_045_WorkHistoryVerification()
         {
             rbDidYouWork.Click();
-            return this;
-        }
 
-        public UI_050_StatesYouWorkedIn ClickNextButton()
-        {
             btnNext.Click();
-            return new UI_050_StatesYouWorkedIn();
+
         }
     }
 }

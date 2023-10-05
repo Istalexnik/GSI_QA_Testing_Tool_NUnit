@@ -13,22 +13,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbClaimedUnemployment = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblAppliedUCPast12Months_1']");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");
 
-        public UI_050_StatesYouWorkedIn ClickWorkedInTwoStatesRButton()
+        public UI_050_StatesYouWorkedIn()
         {
             rbWorkedInTwoStates.Click();
-            return this;
-        }   
-        
-        public UI_050_StatesYouWorkedIn ClickClaimedUnemploymentRButton()
-        {
-            rbClaimedUnemployment.Click();
-            return this;
-        }
 
-        public UI_055_FederalService ClickNextButton()
-        {
+            rbClaimedUnemployment.Click();
+
             btnNext.Click();
-            return new UI_055_FederalService();
+
         }
 
     }

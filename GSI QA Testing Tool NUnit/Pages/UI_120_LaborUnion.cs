@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
-    public class UI_035_WelcomePage
+    public class UI_120_LaborUnion
     {
-        By btnNext = By.Id("ctl00_Main_content_Wizard1_StartNavigationTemplateContainerID_StartNextButton");
+        By rbMemberNo = By.Id("ctl00_Main_content_ucUILaborUnion_rblUnionMember_1");
 
-        public UI_035_WelcomePage()
+        By btnNext = By.Id("ctl00_Main_content_btnNext");
+        public UI_120_LaborUnion()
         {
+            rbMemberNo.Click();
+
             btnNext.Click();
         }
     }

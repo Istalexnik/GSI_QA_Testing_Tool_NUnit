@@ -12,16 +12,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbFederalCivilianEmployee = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblFederalCivilianEmployee_1']");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");
 
-        public UI_055_FederalService ClickrbFederalCivilianEmployee()
+        public UI_055_FederalService()
         {
             rbFederalCivilianEmployee.Click();
-            return this;
-        }
 
-        public UI_060_MilitaryService ClickbtnNext()
-        {
             btnNext.Click();
-            return new UI_060_MilitaryService();
+
         }
 
     }

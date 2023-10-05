@@ -12,16 +12,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbFilingUI = By.CssSelector("label[for='ctl00_Main_content_radFilingUI_0']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
-        public UI_030_UnemploymentInsuranceCompemsation ClickAttemptingToFileRButton()
+        public UI_030_UnemploymentInsuranceCompemsation()
         {
             rbFilingUI.Click();
-            return this;
-        }
 
-        public UI_035_WelcomePage ClickNextButton()
-        {
             btnNext.Click();
-            return new UI_035_WelcomePage();
         }
 
     }

@@ -7,22 +7,24 @@ using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Data
 {
-    public class TestData
+    public static class TestData
     {
-        public string Url { get; private set; }
-        public string Zip { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string DOB { get; private set; }
-        public string SSN { get; private set; }
-        public string Username { get; private set; }
-        public string Password { get; private set; }
-        public string SecurityResponse { get; private set; }
-        public string Email { get; private set; }
+        public static string Url { get; private set; }
+        public static string Zip { get; private set; }
+        public static string FirstName { get; private set; }
+        public static string LastName { get; private set; }
+        public static string DOB { get; private set; }
+        public static string SSN { get; private set; }
+        public static string Username { get; private set; }
+        public static string Password { get; private set; }
+        public static string SecurityResponse { get; private set; }
+        public static string Email { get; private set; }
+        public static string Address1 { get; private set; }
+        public static string Phone { get; private set; }
 
 
 
-        public TestData()
+        static TestData()
         {
             Url = "https://uat-app-vos19000000-gus.geosolinc.com/vosnet/default.aspx";
             Zip = "50001";
@@ -34,7 +36,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
             Password = "Olga2011!";
             SecurityResponse = "Test";
             Email = Username + "@geosolinc.com";
-
+            Address1 = "2714 Park Avenue";
+            Phone = "8135647356";
         }
 
     }

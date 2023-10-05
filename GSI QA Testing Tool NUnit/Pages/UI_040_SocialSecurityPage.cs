@@ -1,4 +1,5 @@
-﻿using GSI_QA_Testing_Tool_NUnit.Utilities;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using GSI_QA_Testing_Tool_NUnit.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -14,22 +15,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtSSNReenter = By.Id("ctl00_Main_content_Wizard1_ucSSN_txtSSNReenter");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");      
 
-        public UI_040_SocialSecurityPage EnterSSN(String ssn)
+        public UI_040_SocialSecurityPage()
         {
-            txtSSN.SendKeys(ssn);
-            return this;
-        }
+            txtSSN.SendKeys(TestData.SSN);
 
-        public UI_040_SocialSecurityPage ReEnterSSN(String ssn)
-        {
-            txtSSNReenter.SendKeys(ssn);
-            return this;
-        }
+            txtSSNReenter.SendKeys(TestData.SSN);
 
-        public UI_045_WorkHistoryVerification ClickNextButton()
-        {
             btnNext.Click();
-            return new UI_045_WorkHistoryVerification();
+
         }
     }
 }

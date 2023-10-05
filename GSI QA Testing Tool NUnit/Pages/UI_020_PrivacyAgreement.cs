@@ -12,10 +12,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnAgree = By.Id("ctl00_Main_content_ucPrivacyAgreement_btnAgree");
 
 
-        public UI_025_IndividualRegistrationType ClickIAgreeButton()
+        public UI_020_PrivacyAgreement()
         {
             btnAgree.Click();
-            return new UI_025_IndividualRegistrationType();
         }
     }
 }

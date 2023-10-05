@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,10 +14,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnLogin = By.Id("btnguestlogina");
 
 
-        public UI_010_LoginIntroPage ClickLoginButton()
+        public UI_005_HomePage()
         {
             btnLogin.IsPresent()?.Click();
-            return new UI_010_LoginIntroPage();
         }
 
     }

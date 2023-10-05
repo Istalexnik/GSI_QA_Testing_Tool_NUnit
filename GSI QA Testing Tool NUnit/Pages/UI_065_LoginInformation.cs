@@ -22,65 +22,32 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbGender = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblGender_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
-        public UI_065_LoginInformation EnterUsername(string username)
+        public UI_065_LoginInformation()
         {
-            txtUsername.SendKeys(username);
-            return this;
-        }
-        public UI_065_LoginInformation EnterPassword(string password)
-        {
-            txtPassword.SendKeys(password);
-            return this;
-        }
-        public UI_065_LoginInformation EnterPassword2(string password)
-        {
-            txtPassword2.SendKeys(password);
-            return this;
-        }
-        public UI_065_LoginInformation SelectSecurityQuestion(int index)
-        {
-            ddSecurityQuestion.SelectDropdownByIndex(index);
-            return this;
-        }
-        public UI_065_LoginInformation EnterSecurityResponse(string securityResponse)
-        {
-            txtSecurityResponse.SendKeys(securityResponse);
-            return this;
-        }
-        public UI_065_LoginInformation EnterZip(string zip)
-        {
-            txtZip.SendKeys(zip);
-            return this;
-        }
-        public UI_065_LoginInformation ClickrbAuthorizedToWorke()
-        {
+            txtUsername.SendKeys(TestData.Username);
+
+            txtPassword.SendKeys(TestData.Password);
+
+            txtPassword2.SendKeys(TestData.Password);
+
+            ddSecurityQuestion.SelectDropdownByIndex("1");
+
+            txtSecurityResponse.SendKeys(TestData.SecurityResponse);
+
+            txtZip.WaitForElementToBeClickable().SendKeys(TestData.Zip);
+
             rbAuthorizedToWork.Click();
-            return this;
-        }
-        public UI_065_LoginInformation EntertxtEmail(string email)
-        {
-            txtEmail.SendKeys(email);
-            return this;
-        }
-        public UI_065_LoginInformation EntertxtEmail2(string email)
-        {
-            txtEmail2.SendKeys(email);
-            return this;
-        }
-        public UI_065_LoginInformation EntertxtDOB(string dob)
-        {
-            txtDOB.SendKeys(dob);
-            return this;
-        }
-        public UI_065_LoginInformation ClickrbGender()
-        {
-            rbGender.Click().WaitForElementToBeStaleAndRefind();
-            return this;
-        }
-        public UI_070_NamePage ClickbtnNext()
-        {
+
+            txtEmail.WaitForElementToBeClickable().SendKeys(TestData.Email);
+
+            txtEmail2.SendKeys(TestData.Email);
+
+            txtDOB.SendKeys(TestData.DOB);
+
+            rbGender.Click();
+
             btnNext.Click();
-            return new UI_070_NamePage();
+
         }
     }
 }
