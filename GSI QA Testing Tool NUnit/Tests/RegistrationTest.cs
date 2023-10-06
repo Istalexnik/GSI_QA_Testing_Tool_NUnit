@@ -73,6 +73,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
             new UI_135_MilitaryInformation();
 
             new UI_140_PaymentInformation();
+
+            new UI_145_UnemploymentCompensation();
+
+            new UI_180_EmploymentHistoryBeforeFirst();
+
+            new UI_185_EmployerSearch();
+
+            new UI_190_EmployerPage();
         }
     }
 }

@@ -291,10 +291,9 @@ namespace GSI_QA_Testing_Tool_NUnit
             try
             {
                 IWebElement element = Driver.FindElement(locator);
-                element.SendKeys(text);
+                element.SendKeys(text + Keys.ArrowUp);
 
-                // Thread.Sleep(4000);
-               WaitForSuggestions(suggesstionsLocator);
+                WaitForSuggestions(suggesstionsLocator);
 
                 element.SendKeys(Keys.ArrowDown + Keys.Enter);
             }
@@ -316,13 +315,16 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
             try
             {
-                return Driver.FindElement(locator).Text;
+                return Driver.FindElement(locator).GetAttribute("value");
             }
             catch (NoSuchElementException)
             {
                 throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "GetText()"));
             }
         }
+
+
+
 
         /// <summary>
         /// Clicks on all visible elements specified by the locator.
@@ -362,6 +364,29 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
             var dropdown = new SelectElement(Driver.FindElement(locator));
             dropdown.SelectByText(text);
+            return locator;
+        }
+
+        /// <summary>
+        /// Selects the first dropdown option that contains the provided partial text.
+        /// </summary>
+        /// <param name="locator">The By locator for the dropdown element.</param>
+        /// <param name="partialText">The substring to search for in the dropdown options.</param>
+        /// <returns>Returns the original locator.</returns>
+        public static By SelectDropdownByPartialText(this By locator, string partialText)
+        {
+            IWebElement dropdownElement = Driver.FindElement(locator);
+            var dropdown = new SelectElement(dropdownElement);
+
+            foreach (var option in dropdown.Options)
+            {
+                if (option.Text.Contains(partialText))
+                {
+                    option.Click();
+                    break; // Exit the loop once the first match is found and selected
+                }
+            }
+
             return locator;
         }
 

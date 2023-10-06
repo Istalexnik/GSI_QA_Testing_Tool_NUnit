@@ -11,6 +11,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         public static string Url { get; private set; }
         public static string Zip { get; private set; }
+        public static string Employer { get; private set; }
+        public static string WorkBeginDate { get; private set; }
+        public static string WorkEndDate { get; private set; }
         public static string FirstName { get; private set; }
         public static string LastName { get; private set; }
         public static string DOB { get; private set; }
@@ -29,6 +32,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
         {
             Url = "https://uat-app-vos19000000-gus.geosolinc.com/vosnet/default.aspx";
             Zip = "50001";
+            Employer = "Serdino Inc";
+            WorkBeginDate = "11/11/2011";
+            WorkEndDate = DateTime.Today.ToString("MM/dd/yyyy");
             FirstName = "Alex";
             LastName = "Istomin";
             DOB = "11/11/1959";
