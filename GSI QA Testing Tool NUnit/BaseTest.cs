@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         [SetUp]
         public static void TestSetup()
         {
+            CloseAllChromeDriverProcesses();
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
 
@@ -39,5 +41,23 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
         //    Driver.Quit();
         }
+
+        private static void CloseAllChromeDriverProcesses()
+        {
+            foreach (var process in Process.GetProcessesByName("chrome"))
+            {
+                try
+                {
+                    process.Kill();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Failed to close process {process.Id}. Error: {ex.Message}");
+                }
+            }
+
+
+        }
+
     }
 }

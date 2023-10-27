@@ -17,10 +17,10 @@ namespace GSI_QA_Testing_Tool_NUnit
         public static int GetTimeout()
         {
             // Example: Return a different timeout for a specific environment
-            if (Environment.GetEnvironmentVariable("Env") == "QA")
-            {
-                return 15;
-            }
+            //if (Environment.GetEnvironmentVariable("Env") == "QA")
+            //{
+            //    return 15;
+            //}
             return DefaultTimeoutInSeconds;
         }
 
@@ -133,6 +133,11 @@ namespace GSI_QA_Testing_Tool_NUnit
                         // This is what we want; the element is now stale!
                         return true;
                     }
+                    catch (WebDriverTimeoutException)
+                    {
+                        // This is what we want; the element is now stale!
+                        return true;
+                    }
                 });
             }
 
@@ -226,7 +231,8 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
             try
             {
-                Driver.FindElement(locator).Click();
+                //Driver.FindElement(locator).Click();
+                locator.JSClick();
             }
             catch (NoSuchElementException)
             {
@@ -236,10 +242,10 @@ namespace GSI_QA_Testing_Tool_NUnit
             {
                 locator.WaitForElementToBeStaleAndRefind().Click();
             }
-            catch (ElementNotInteractableException)
-            {
-                locator.JSClick();
-            }
+            //catch (ElementNotInteractableException)
+            //{
+            //    locator.JSClick();
+            //}
             return locator;
         }
 
@@ -261,6 +267,13 @@ namespace GSI_QA_Testing_Tool_NUnit
         }
 
         /// <summary>
+        /// Checks if the element specified by the locator is present.
+        public static bool FindIt(this By locator)
+        {
+            return Driver.FindElements(locator).Count > 0;
+        }
+
+        /// <summary>
         /// Sends the specified text to the element determined by the locator.
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
@@ -277,6 +290,24 @@ namespace GSI_QA_Testing_Tool_NUnit
                 throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "SendKeys()"));
             }
             return locator;
+        }
+
+
+        /// <summary>
+        /// Sends the specified text to an element within an iframe, if the iframe exists.
+        /// </summary>
+        /// <param name="locator">The By locator for the iframe element.</param>
+        /// <param name="locatorIFrameElement">The By locator for the target element inside the iframe to which text will be sent.</param>
+        /// <param name="text">The text to be sent to the target element.</param>
+        public static void SendTextToIFrame(this By locator, By locatorIFrameElement, string text)
+        {
+            if (Driver.FindElements(locator).Count() > 0)
+            {
+                IWebElement iframe = Driver.FindElement(locator);
+                Driver.SwitchTo().Frame(iframe);
+                Driver.FindElement(locatorIFrameElement).SendKeys(text);
+                Driver.SwitchTo().ParentFrame();
+            }
         }
 
 
@@ -327,6 +358,24 @@ namespace GSI_QA_Testing_Tool_NUnit
 
 
         /// <summary>
+        /// Performs a click action on all visible elements matched by the specified locator, 
+        /// repeating the action 5 times with a 300ms delay between each iteration.
+        /// </summary>
+        /// <param name="locator">The By locator for the elements to be clicked.</param>
+        public static void LoopAndClickAllVisible(this By locator)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Thread.Sleep(300);
+                locator.ClickAllVisible();
+            }
+        }
+
+
+
+
+
+        /// <summary>
         /// Clicks on all visible elements specified by the locator.
         /// </summary>
         /// <param name="locator">The By locator for the elements.</param>
@@ -352,6 +401,22 @@ namespace GSI_QA_Testing_Tool_NUnit
             }
             return locator;
         }
+
+
+        /// <summary>
+        /// Iterates through all checkboxes on the current page and clicks on each one that is visible and not already checked.
+        /// </summary>
+        public static void ClickAllCheckBoxes()
+        {
+            var checkboxes = Driver.FindElements(By.CssSelector("input[type='checkbox']"));
+
+            foreach (IWebElement checkbox in checkboxes)
+            {
+                var js = (IJavaScriptExecutor)Driver;
+                js.ExecuteScript("arguments[0].click();", checkbox);
+            }
+        }
+
 
         /// <summary>
         /// Selects an option from a dropdown element based on visible text.

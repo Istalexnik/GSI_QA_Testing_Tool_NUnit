@@ -45,6 +45,43 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By txtWorkEndDate = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEndDate");
 
+        By rbRecallNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblIntendToRecall_1");
+
+        By rbEducationalNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblEducationalInstitution_1");
+
+        By rbOfficerRelativeNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblCorporateOfficer_1");
+
+        By rbTransferOutOfCountryNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblTransferOutOfCountry_1");
+
+        By ifrJobDuties = By.XPath("//iFrame[contains(@title, 'ctl00_Main_content_ucIndEmpHistory_txtJobDuties_txtWYSIWYGEditor')]");
+
+        By txtJobDuties = By.XPath("//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_show_borders']");
+        
+        By rbSeveranceNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Severance_rdoPayType_1");
+
+        By rbVacationNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Vacation_rdoPayType_1");
+
+        By rbHolidayPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Holiday_rdoPayType_1");
+
+        By rbSickPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Sick_rdoPayType_1");
+
+        By rbBonusPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Bonus_rdoPayType_1");
+
+        By rbPensionNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucPensionRetirement_rblPension_1");
+
+        By rb401KNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucPensionRetirement_rbl401k_1");
+
+        By rbMilitaryDisabilityNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucPensionRetirement_rblMilitaryDisabilityCompensation_1");
+
+        By rbWorkersCompensationAreNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblWCReceived_1");
+
+        By rbWorkersCompensationDidNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rdoWCNewReceived_1");
+
+        By btnNext = By.Id("ctl00_Main_content_ucWizardButtons_btnSave");
+
+        By btnConfirm = By.XPath("//button[@id='btn-dialog-save']");
+
+
         public UI_190_EmployerPage()
         {
 
@@ -83,7 +120,39 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtWorkEndDate.SendKeys(TestData.WorkEndDate);
 
+            rbRecallNo.Click();
 
+            rbEducationalNo.Click();
+
+            rbOfficerRelativeNo.Click();
+
+            rbTransferOutOfCountryNo.Click();
+
+            ifrJobDuties.SendTextToIFrame(txtJobDuties, "Test");
+
+            rbSeveranceNo.Click();
+
+            rbVacationNo.Click();
+
+            rbHolidayPayNo.Click();
+
+            rbSickPayNo.Click();
+
+            rbBonusPayNo.Click();
+
+            rbPensionNo.Click();
+
+            rb401KNo.Click();
+
+            rbMilitaryDisabilityNo.Click();
+
+            rbWorkersCompensationAreNo.Click();
+
+            rbWorkersCompensationDidNo.Click();
+
+            btnNext.Click();
+
+            btnConfirm.LoopAndClickAllVisible();
         }
     }
 }

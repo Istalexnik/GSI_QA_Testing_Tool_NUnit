@@ -34,8 +34,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtSecurityResponse.SendKeys(TestData.SecurityResponse);
 
-            txtZip.WaitForElementToBeClickable().SendKeys(TestData.Zip);
+            Thread.Sleep(100);
 
+            txtZip.WaitForElementToBeClickable().SendKeys(TestData.Zip);
+            
             rbAuthorizedToWork.Click();
 
             txtEmail.WaitForElementToBeClickable().SendKeys(TestData.Email);

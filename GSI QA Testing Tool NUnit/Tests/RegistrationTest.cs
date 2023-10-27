@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GSI_QA_Testing_Tool_NUnit.Tests
 {
 
@@ -17,6 +18,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
         [Test]
         public void TestRegistration()
         {
+            Console.WriteLine(TestData.SSN);
+            Console.WriteLine(TestData.Username);
+            Console.WriteLine(TestData.Url);
+
 
             new UI_005_HomePage();
 
@@ -81,6 +86,22 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
             new UI_185_EmployerSearch();
 
             new UI_190_EmployerPage();
+
+            new UI_195_EmploymentHistoryAfterFirst();
+
+            new UI_200_BasePeriodEmploymentInformation();
+
+            new UI_205_UnemploymentInsuranceClaimConfirmation();
+
+            new UI_210_ImportantAgreement();
+
+            new UI_215_AcknowledgmentPage();
+
+            new UI_220_BenefitsRightsInformation();
+
+            new UI_225_ClaimConfirmation();
+
+            Driver?.Quit();
         }
     }
 }
