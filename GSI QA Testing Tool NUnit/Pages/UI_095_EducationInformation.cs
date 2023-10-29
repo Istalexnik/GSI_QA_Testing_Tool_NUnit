@@ -11,6 +11,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By ddHighestLevelEducation = By.Id("ctl00_Main_content_ucEducation_ddlIndEduLevel");
         By ddAttendingSchool = By.Id("ctl00_Main_content_ucEducation_ddlSchoolStatus");
+        By rbPlansToAttendSchoolNo = By.CssSelector("label[for='ctl00_Main_content_ucEducation_rblPlanSchoolIn12Months_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
         public UI_095_EducationInformation()
@@ -18,6 +19,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             ddHighestLevelEducation.SelectDropdownByIndex("1");
 
             ddAttendingSchool.SelectDropdownByValue("4");
+
+            rbPlansToAttendSchoolNo.IsPresent()?.Click();
 
             btnNext.Click();
 

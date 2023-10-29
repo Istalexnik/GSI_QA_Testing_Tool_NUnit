@@ -32,7 +32,7 @@ namespace GSI_QA_Testing_Tool_NUnit
     new Environment("PA CIT", "https://cit.benefits.uc.pa.gov/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Toyota", "Gsisa02", "UIgsiA1*"),
     new Environment("PA CUAT", "https://uat.benefits.uc.pa.gov/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "Target", "Toyota", "gsisa0", "UIgsiA1*"),
     new Environment("PA QA", "https://qa-app-vos42000000.geosolinc.com/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Publix", "GSISA0", "GeoIAGUSSol22*@"),
-    new Environment("NE UAT", "https://uat-app-vos31000000.geosolinc.com/vosnet/default.aspx", "68104", "Nebraska", "NE", "GSIUITAX1110S", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),
+    new Environment("NE UAT", "https://uat-app-vos31000000.geosolinc.com/vosnet/default.aspx", "68104", "Nebraska", "NE", "Amazon", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("NE QA", "https://qa-app-vos31000000.geosolinc.com/vosnet/default.aspx", "68104", "Nebraska", "NE", "Target", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("NE STAGING", "https://staging-app-vos31000000.geosolinc.com/vosnet/default.aspx", "68104", "Nebraska", "NE", "gsitaxmc080701", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("LA UAT", "https://uat-app-vos22000000.geosolinc.com/vosnet/default.aspx", "70803", "Louisiana", "LA", "MICROCHIP LLC", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),

@@ -11,6 +11,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By rbAcceptJobIfOfferedYes = By.Id("ctl00_Main_content_ucUIEmployment_rblOfferedJobToday_0");
 
+        By rbBeenPhysicallyAbleToWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucUIEmployment_rblPhysicallyAbleToWork_0']");
+        
+        By rbBeenAvailableToWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucUIEmployment_rblAvailableToWork_0']");
+
         By rbSelfEmployedNo = By.Id("ctl00_Main_content_ucUIEmployment_rblSelfEmployed_1");
 
         By rbElectedOfficialNo = By.Id("ctl00_Main_content_ucUIEmployment_rblElectedOfficial_1");
@@ -19,11 +23,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_105_EmploymentStatus()
         {
-            rbAcceptJobIfOfferedYes.Click();
+            rbAcceptJobIfOfferedYes.IsPresent()?.Click();
+
+            rbBeenPhysicallyAbleToWorkYes.IsPresent()?.Click();
+
+            rbBeenAvailableToWorkYes.IsPresent()?.Click();
 
             rbSelfEmployedNo.Click();
 
-            rbElectedOfficialNo.Click();
+            rbElectedOfficialNo.IsPresent()?.Click();
 
             btnNext.Click();
         }

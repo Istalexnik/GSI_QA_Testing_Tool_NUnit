@@ -39,6 +39,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_040_SocialSecurityPage();
 
+            new UI_043_WorkersCompensationInformation();
+
             new UI_045_WorkHistoryVerification();
 
             new UI_050_StatesYouWorkedIn();
@@ -76,6 +78,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
             new UI_130_EthnicOrigin();
 
             new UI_135_MilitaryInformation();
+
+            new UI_138_IdentificationInformation();
 
             new UI_140_PaymentInformation();
 

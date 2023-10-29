@@ -14,14 +14,18 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtEmployerName = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmpName");
 
         By txtSuggestions = By.Id("ac_results");
+        
+        By rbEarnAtLeastYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblEmployerLiable_0']");
 
-        By rbLastEmployerYes = By.Id("ctl00_Main_content_ucIndEmpHistory_rblLastEmployer_0");
+        By rbLastEmployerYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblLastEmployer_0']");
 
         By txtJobTitle = By.Id("ctl00_Main_content_ucIndEmpHistory_txtJobTitle");
 
         By ddEmployerType = By.Id("ctl00_Main_content_ucIndEmpHistory_cboEmpType");
 
         By ddFullOrPartTime = By.Id("ctl00_Main_content_ucIndEmpHistory_cboFullPartTime");
+
+        By ddScheduleOfWork = By.Id("ctl00_Main_content_ucIndEmpHistory_ddlScheduleOfWork");
 
         By ddHours = By.Id("ctl00_Main_content_ucIndEmpHistory_ddlWholeHours");
 
@@ -47,11 +51,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By rbRecallNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblIntendToRecall_1");
 
+        By rbFamilyResponsobilitiesNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblFamilyResponsibilities_1']");
+
         By rbEducationalNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblEducationalInstitution_1");
 
         By rbOfficerRelativeNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblCorporateOfficer_1");
 
         By rbTransferOutOfCountryNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblTransferOutOfCountry_1");
+
+        By rbLackOfTransportationNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblLackOfTransportation_1']");
 
         By ifrJobDuties = By.XPath("//iFrame[contains(@title, 'ctl00_Main_content_ucIndEmpHistory_txtJobDuties_txtWYSIWYGEditor')]");
 
@@ -66,6 +74,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbSickPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Sick_rdoPayType_1");
 
         By rbBonusPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Bonus_rdoPayType_1");
+
+        By rbWagesInLieuNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_InLieu_rdoPayType_1']");
 
         By rbPensionNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucPensionRetirement_rblPension_1");
 
@@ -90,13 +100,18 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             }
 
-            rbLastEmployerYes.Click().WaitForElementToBeStaleAndRefind();
+            rbLastEmployerYes.WaitForElementToBeClickable().Click();
 
+            rbEarnAtLeastYes.IsPresent()?.WaitForElementToBeClickable().Click();
+            Thread.Sleep(5000);
+            
             txtJobTitle.EnterText(TestData.JobTitle, txtSuggestions).WaitForElementToBeStaleAndRefind();
 
             ddEmployerType.SelectDropdownByIndex("1");
 
             ddFullOrPartTime.SelectDropdownByIndex("1");
+
+            ddScheduleOfWork.IsPresent()?.SelectDropdownByIndex("1");
 
             ddHours.SelectDropdownByIndex("1");
 
@@ -116,17 +131,21 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             ddSeparationReason.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
 
-            ddSeparationCategory.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
+            ddSeparationCategory.IsPresent()?.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
 
             txtWorkEndDate.SendKeys(TestData.WorkEndDate);
 
             rbRecallNo.Click();
+
+            rbFamilyResponsobilitiesNo.IsPresent()?.Click();
 
             rbEducationalNo.Click();
 
             rbOfficerRelativeNo.Click();
 
             rbTransferOutOfCountryNo.Click();
+
+            rbLackOfTransportationNo.IsPresent()?.Click();
 
             ifrJobDuties.SendTextToIFrame(txtJobDuties, "Test");
 
@@ -140,9 +159,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbBonusPayNo.Click();
 
+            rbWagesInLieuNo.IsPresent()?.Click();
+
             rbPensionNo.Click();
 
-            rb401KNo.Click();
+            rb401KNo.IsPresent()?.Click();
 
             rbMilitaryDisabilityNo.Click();
 

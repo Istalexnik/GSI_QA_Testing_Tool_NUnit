@@ -10,7 +10,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     public class UI_100_EmploymentInformation
     {
         By ddCurrentEmpStatus = By.Id("ctl00_Main_content_ucEmployment_ddlEmployStatus");
-       
+
+        By ddTypeOfBusiness = By.Id("ctl00_Main_content_ucEmployment_ddlTypeBusiness");
+
+        By ddUnempEligibilityStatus = By.Id("ctl00_Main_content_ucEmployment_ddlUnemploymentInsurance");
+
         By rbLookingForWorkYes = By.Id("ctl00_Main_content_ucEmployment_rblLookingForWork_0");
 
         By rbApprenticeshipNo = By.Id("ctl00_Main_content_ucEmployment_rblInterestedInRegisteredApprenticeship_1");
@@ -25,9 +29,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             ddCurrentEmpStatus.SelectDropdownByValue("3");
 
+            ddTypeOfBusiness.IsPresent()?.SelectDropdownByIndex("1");
+
+            ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1");
+
             rbLookingForWorkYes.Click();
 
-            rbApprenticeshipNo.Click();
+            rbApprenticeshipNo.IsPresent()?.Click();
 
             rbCertificationsNo.Click();
 

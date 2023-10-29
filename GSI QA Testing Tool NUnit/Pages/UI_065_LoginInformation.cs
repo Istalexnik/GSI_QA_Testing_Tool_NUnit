@@ -19,6 +19,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtEmail = By.Id("ctl00_Main_content_ucEmailTextBox_txtEmail");
         By txtEmail2 = By.Id("ctl00_Main_content_ucEmailTextBox_txtEmailConfirm");
         By txtDOB = By.Id("ctl00_Main_content_ucRegDemographics_txtDOB");
+        By txtCityOfBirth = By.Id("ctl00_Main_content_ucRegDemographics_txtCityOfBirth");
+        By txtMothersName = By.Id("ctl00_Main_content_ucRegDemographics_txtMothersMaidenName");
         By rbGender = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblGender_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
@@ -26,11 +28,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             txtUsername.SendKeys(TestData.Username);
 
+            Thread.Sleep(200);
+
             txtPassword.SendKeys(TestData.Password);
 
             txtPassword2.SendKeys(TestData.Password);
 
             ddSecurityQuestion.SelectDropdownByIndex("1");
+
+            Thread.Sleep(100);
 
             txtSecurityResponse.SendKeys(TestData.SecurityResponse);
 
@@ -45,6 +51,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             txtEmail2.SendKeys(TestData.Email);
 
             txtDOB.SendKeys(TestData.DOB);
+
+            txtCityOfBirth.IsPresent()?.SendKeys("Tampa");
+
+            txtMothersName.IsPresent()?.SendKeys("Test");
 
             rbGender.Click();
 

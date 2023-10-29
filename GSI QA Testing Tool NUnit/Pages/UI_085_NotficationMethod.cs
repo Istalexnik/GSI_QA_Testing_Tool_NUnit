@@ -12,6 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By ddUINotices = By.Id("ctl00_Main_content_ucNotificationMethod_ddlPrefDelMethods");
         By ddOtherNotices = By.Id("ctl00_Main_content_ucNotificationMethod_ddlDeterminationNotificationMethod");
         By ddFromWhereAccessing = By.Id("ctl00_Main_content_ucSiteAccess_ddlSiteAccess");
+        By dd1099TaxForm = By.Id("ctl00_Main_content_ucNotificationMethod_ddl1099GNotificationMethod");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
         public UI_085_NotficationMethod()
@@ -21,6 +22,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             ddOtherNotices.SelectDropdownByValue("7");
 
             ddFromWhereAccessing.SelectDropdownByIndex("1");
+
+            dd1099TaxForm.SelectDropdownByValue("5");
 
             btnNext.Click();
         }

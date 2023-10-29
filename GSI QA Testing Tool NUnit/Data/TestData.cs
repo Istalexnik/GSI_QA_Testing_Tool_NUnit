@@ -12,20 +12,20 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         static TestData()
         {
-            Site = "NE UAT";
-            WorkBeginDate = "11/11/2011";
-            WorkEndDate = DateTime.Today.ToString("MM/dd/yyyy");
+            Site = "IA UAT";
+            SSN = DataGenerator.GenerateRandomNumbers(1, "234567") + DataGenerator.GenerateRandomNumbers(8);
             FirstName = "Alex";
             LastName = "Istomin";
             DOB = "11/11/1959";
-            SSN = DataGenerator.GenerateRandomNumbers(1, "234567") + DataGenerator.GenerateRandomNumbers(8);
             Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + 1;
             Password = "Olga2011!";
+            WorkBeginDate = "11/11/2011";
+            WorkEndDate = DateTime.Today.ToString("MM/dd/yyyy");
             SecurityResponse = "Test";
             Email = Username + "@geosolinc.com";
             Address1 = "2714 Park Avenue";
             Phone = "8135647356";
-            JobTitle = "Test";
+            JobTitle = "Dairy Clerk";
             Environment? selectedEnvironment = envs.FirstOrDefault(e => e.SiteName == Site);
             if (selectedEnvironment != null)
             {

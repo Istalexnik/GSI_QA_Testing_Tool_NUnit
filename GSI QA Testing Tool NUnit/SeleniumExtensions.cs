@@ -278,7 +278,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// </summary>
         /// <param name="locator">The By locator for the element.</param>
         /// <param name="text">The text to be sent to the element.</param>
-        public static By SendKeys(this By locator, string text)
+        public static By SendKeys(this By locator, string? text)
         {
             try
             {
@@ -317,20 +317,27 @@ namespace GSI_QA_Testing_Tool_NUnit
         /// <param name="locator">The By locator used to identify and locate the element on the webpage.</param>
         /// <param name="text">The text to be sent to the identified element.</param>
         /// <returns>Returns the original locator.</returns>
-        public static By EnterText(this By locator, string text, By suggesstionsLocator)
+        public static By EnterText(this By locator, string? text, By suggesstionsLocator)
         {
             try
             {
                 IWebElement element = Driver.FindElement(locator);
+                Thread.Sleep(500);
+
                 element.SendKeys(text + Keys.ArrowUp);
 
                 WaitForSuggestions(suggesstionsLocator);
 
                 element.SendKeys(Keys.ArrowDown + Keys.Enter);
+
             }
             catch (NoSuchElementException)
             {
                 throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "SendKeys()"));
+            }
+            catch(ElementNotInteractableException)
+            {
+                
             }
             return locator;
         }
@@ -462,7 +469,7 @@ namespace GSI_QA_Testing_Tool_NUnit
             return locator;
         }
 
-        public static By SelectDropdownByValue(this By locator, string value)
+        public static By SelectDropdownByValue(this By locator, string? value)
         {
             var dropdown = new SelectElement(Driver.FindElement(locator));
             dropdown.SelectByValue(value);
