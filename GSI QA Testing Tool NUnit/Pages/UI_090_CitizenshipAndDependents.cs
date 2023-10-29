@@ -32,7 +32,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbChildSupportDeductions.IsPresent()?.Click();
 
-            btnNext.Click();
+            btnNext.WaitForElementToBeClickable().Click();
 
         }
     }

@@ -14,7 +14,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtEmployerName = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmpName");
 
         By txtSuggestions = By.Id("ac_results");
-        
+
+        By rbDCGovermentAgencyNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblAgency_1']");
+
         By rbEarnAtLeastYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblEmployerLiable_0']");
 
         By rbLastEmployerYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblLastEmployer_0']");
@@ -75,6 +77,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By rbBonusPayNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_Bonus_rdoPayType_1");
 
+        By rbWarnPaymentNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_WARN_rdoPayType_1']");
+        
         By rbWagesInLieuNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_ucBenefitPaymentForm_InLieu_rdoPayType_1']");
 
         By rbPensionNo = By.Id("ctl00_Main_content_ucIndEmpHistory_ucPensionRetirement_rblPension_1");
@@ -99,6 +103,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             {
 
             }
+
+            rbDCGovermentAgencyNo.IsPresent()?.Click();
 
             rbLastEmployerYes.WaitForElementToBeClickable().Click();
 
@@ -135,7 +141,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtWorkEndDate.SendKeys(TestData.WorkEndDate);
 
-            rbRecallNo.Click();
+            rbRecallNo.IsPresent()?.Click();
 
             rbFamilyResponsobilitiesNo.IsPresent()?.Click();
 
@@ -158,6 +164,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             rbSickPayNo.Click();
 
             rbBonusPayNo.Click();
+
+            rbWarnPaymentNo.IsPresent()?.Click();
 
             rbWagesInLieuNo.IsPresent()?.Click();
 

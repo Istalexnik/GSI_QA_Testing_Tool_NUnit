@@ -18,6 +18,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By btnOk = By.Id("btn-dialog-ok");
 
+        By rbPaperWeeklyCertsNo = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_rblWeeklyCert_1']");
+
         By rbFederalTaxYes = By.Id("ctl00_Main_content_ucPaymentDeductions_rblFederalTaxWithheld_0");
         
         By rbStateTaxYes = By.Id("ctl00_Main_content_ucPaymentDeductions_rblStateTaxWithheld_0");
@@ -33,7 +35,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             cbAcknowledgLong.IsPresent()?.Click();
 
-            btnOk.Click();
+            btnOk.IsPresent()?.Click();
+
+            rbPaperWeeklyCertsNo.IsPresent()?.Click();
 
             rbFederalTaxYes.Click();
 

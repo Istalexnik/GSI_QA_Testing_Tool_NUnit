@@ -13,6 +13,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_025_IndividualRegistrationType()
         {
+            if (!lnkRegistration.FindIt()) { return; }
+
             lnkRegistration.JSClick();
         }
     }

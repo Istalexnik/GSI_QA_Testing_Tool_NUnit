@@ -29,8 +29,9 @@ namespace GSI_QA_Testing_Tool_NUnit
     });
             chromeOptions.AddExcludedArgument("enable-automation");
 
+            chromeOptions.AddUserProfilePreference("profile.exit_type", "Normal");
 
-            Driver = new ChromeDriver(service, chromeOptions);
+            Driver = new ChromeDriver(service, chromeOptions, TimeSpan.FromSeconds(120));
             CurrentDriver = Driver; // <-- This sets the static driver in BasePage.
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl(TestData.Url);

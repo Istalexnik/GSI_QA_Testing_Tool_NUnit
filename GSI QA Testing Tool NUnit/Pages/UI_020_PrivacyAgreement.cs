@@ -14,6 +14,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_020_PrivacyAgreement()
         {
+            if (!btnAgree.FindIt()) { return; }
+
             btnAgree.Click();
         }
     }

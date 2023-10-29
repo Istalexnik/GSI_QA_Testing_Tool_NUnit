@@ -16,7 +16,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_095_EducationInformation()
         {
-            ddHighestLevelEducation.SelectDropdownByIndex("1");
+            ddHighestLevelEducation.IsPresent()?.SelectDropdownByIndex("1");
 
             ddAttendingSchool.SelectDropdownByValue("4");
 

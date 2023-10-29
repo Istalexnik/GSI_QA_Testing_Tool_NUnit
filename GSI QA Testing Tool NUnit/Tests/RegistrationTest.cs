@@ -25,7 +25,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_005_HomePage();
 
-            new UI_010_LoginIntroPage();
+            new UI_010_IntroPage();
 
             new UI_015_EqualOpportunity();
 

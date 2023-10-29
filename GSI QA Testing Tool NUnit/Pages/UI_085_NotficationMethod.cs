@@ -19,7 +19,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             ddUINotices.SelectDropdownByValue("7");
 
-            ddOtherNotices.SelectDropdownByValue("7");
+            ddOtherNotices.IsPresent()?.SelectDropdownByValue("7");
 
             ddFromWhereAccessing.SelectDropdownByIndex("1");
 

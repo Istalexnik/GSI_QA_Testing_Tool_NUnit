@@ -21,6 +21,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By rbCertificationsNo = By.Id("ctl00_Main_content_ucEmployment_rblCertifications_1");
 
+        By rbDomesticViolenceNo = By.CssSelector("label[for='ctl00_Main_content_ucEmployment_rblFilingclaimDueToDomesticViolence_1']");
+
         By rbFarmworkerNo = By.Id("ctl00_Main_content_ucEmployment_rblMigrant_1");
 
         By btnNext = By.Id("ctl00_Main_content_btnNext");
@@ -38,6 +40,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             rbApprenticeshipNo.IsPresent()?.Click();
 
             rbCertificationsNo.Click();
+
+            rbDomesticViolenceNo.IsPresent()?.Click();
 
             rbFarmworkerNo.Click();
 

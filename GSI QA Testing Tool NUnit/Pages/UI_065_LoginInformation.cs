@@ -21,7 +21,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtDOB = By.Id("ctl00_Main_content_ucRegDemographics_txtDOB");
         By txtCityOfBirth = By.Id("ctl00_Main_content_ucRegDemographics_txtCityOfBirth");
         By txtMothersName = By.Id("ctl00_Main_content_ucRegDemographics_txtMothersMaidenName");
-        By rbGender = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblGender_1']");
+        By rbGenderMail = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblGender_1']");
+        By rbBeenArrestedNo = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblArrested_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
         public UI_065_LoginInformation()
@@ -42,7 +43,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtZip.WaitForElementToBeClickable().SendKeys(TestData.Zip);
             
-            rbAuthorizedToWork.Click();
+            rbAuthorizedToWork.IsPresent()?.Click();
 
             txtEmail.WaitForElementToBeClickable().SendKeys(TestData.Email);
 
@@ -54,7 +55,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtMothersName.IsPresent()?.SendKeys("Test");
 
-            rbGender.Click();
+            rbGenderMail.Click();
+
+            rbBeenArrestedNo.IsPresent()?.Click();
 
             btnNext.Click();
 

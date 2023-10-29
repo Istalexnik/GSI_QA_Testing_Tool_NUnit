@@ -12,11 +12,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
        
         By btnLogin = By.Id("btnguestlogina");
-
+        By btnSignInRegister = By.Id("ctl00_hlNotRegistered");
 
         public UI_005_HomePage()
         {
             btnLogin.IsPresent()?.Click();
+            btnSignInRegister.IsPresent()?.Click();
         }
 
     }
