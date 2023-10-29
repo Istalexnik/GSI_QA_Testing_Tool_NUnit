@@ -12,7 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         static TestData()
         {
-            Site = "IA UAT";
+            Site = "NE UAT";
             SSN = DataGenerator.GenerateRandomNumbers(1, "234567") + DataGenerator.GenerateRandomNumbers(8);
             FirstName = "Alex";
             LastName = "Istomin";
