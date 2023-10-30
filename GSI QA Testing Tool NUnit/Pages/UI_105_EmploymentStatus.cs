@@ -1,9 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using static GSI_QA_Testing_Tool_NUnit.SeleniumExtensions;
+
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -13,7 +17,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By rbBeenPhysicallyAbleToWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucUIEmployment_rblPhysicallyAbleToWork_0']");
         
-        By rbBeenAvailableToWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucUIEmployment_rblAvailableToWork_0']");
+        By rbBeenAvailableToWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucUIEmployment_rblAvailableToWork_0']");     
 
         By rbSelfEmployedNo = By.Id("ctl00_Main_content_ucUIEmployment_rblSelfEmployed_1");
 
@@ -23,13 +27,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_105_EmploymentStatus()
         {
+
             rbAcceptJobIfOfferedYes.IsPresent()?.Click();
 
             rbBeenPhysicallyAbleToWorkYes.IsPresent()?.Click();
 
             rbBeenAvailableToWorkYes.IsPresent()?.Click();
 
-            rbSelfEmployedNo.Click();
+            rbSelfEmployedNo.IsPresent()?.Click();
 
             rbElectedOfficialNo.IsPresent()?.Click();
 

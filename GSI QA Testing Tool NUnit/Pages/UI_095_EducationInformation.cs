@@ -18,7 +18,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             ddHighestLevelEducation.IsPresent()?.SelectDropdownByIndex("1");
 
-            ddAttendingSchool.SelectDropdownByValue("4");
+            ddAttendingSchool.IsPresent()?.SelectDropdownByValue("4");
 
             rbPlansToAttendSchoolNo.IsPresent()?.Click();
 

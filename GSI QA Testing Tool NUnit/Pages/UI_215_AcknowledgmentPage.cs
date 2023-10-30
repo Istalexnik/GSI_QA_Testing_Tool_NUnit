@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSI_QA_Testing_Tool_NUnit.Data;
+using static GSI_QA_Testing_Tool_NUnit.SeleniumExtensions;
+
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -17,16 +20,16 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         public UI_215_AcknowledgmentPage()
         {
             ClickAllCheckBoxes();
-            txtName.SendKeys($"{TestData.FirstName} {TestData.LastName}");
-            txtDate.SendKeys(DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy"));
+            txtName.IsPresent()?.SendKeys($"{TestData.FirstName} {TestData.LastName}");
+            txtDate.IsPresent()?.SendKeys(DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy"));
 
-            if (TestData.Site.Contains("PR"))
+            if (new[] {"PR", "LA"}.Any(site => TestData.Site.Contains(site)))
             {
-                btnNext2.IsPresent()?.Click();
+                btnNext2.Click();
             }
             else
             {
-                btnNext.IsPresent()?.Click();
+                btnNext.Click();
             }
 
         }

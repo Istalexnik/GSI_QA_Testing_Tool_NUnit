@@ -7,6 +7,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Support.UI;
+using System.Collections.ObjectModel;
+using NUnit.Framework;
+using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces;
+using static GSI_QA_Testing_Tool_NUnit.SeleniumExtensions;
+using System.IO;
 
 namespace GSI_QA_Testing_Tool_NUnit
 {
@@ -34,8 +40,10 @@ namespace GSI_QA_Testing_Tool_NUnit
             Driver = new ChromeDriver(service, chromeOptions, TimeSpan.FromSeconds(120));
             CurrentDriver = Driver; // <-- This sets the static driver in BasePage.
             Driver.Manage().Window.Maximize();
+            Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(120);
             Driver.Navigate().GoToUrl(TestData.Url);
         }
+
 
         [TearDown]
         public void TestTearDown()

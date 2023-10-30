@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using static GSI_QA_Testing_Tool_NUnit.SeleniumExtensions;
 
 
 namespace GSI_QA_Testing_Tool_NUnit.Tests

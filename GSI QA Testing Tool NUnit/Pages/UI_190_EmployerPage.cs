@@ -5,6 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSI_QA_Testing_Tool_NUnit.Data;
+using System.Threading;
+
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -56,6 +59,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By ddSeparationReason = By.Id("ctl00_Main_content_ucIndEmpHistory_cboSeparationReason");
         
         By ddSeparationCategory = By.Id("ctl00_Main_content_ucIndEmpHistory_ddlLeaveReasonSubType");
+
+        By ddReasonOfLayoff = By.Id("ctl00_Main_content_ucIndEmpHistory_ddlLackOfWorkEvent");
 
         By rbVoluntiryLayoffNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblVoluntaryLayoff_1']");
 
@@ -132,7 +137,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             Thread.Sleep(5000);
 
-            rbTemporaryEmployerNo.IsPresent()?.Click();
+            rbTemporaryEmployerNo.IsPresent()?.JSClick();
 
             txtJobTitle.EnterText2(TestData.JobTitle, txtSuggestions).WaitForElementToBeStaleAndRefind();
 
@@ -161,6 +166,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             ddSeparationReason.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
 
             ddSeparationCategory.IsPresent()?.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
+            
+            ddReasonOfLayoff.IsPresent()?.SelectDropdownByValue("1");
 
             rbVoluntiryLayoffNo.IsPresent()?.Click();
             
@@ -186,11 +193,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbSeveranceNo.Click();
 
-            rbVacationNo.Click();
+            rbVacationNo.IsPresent()?.Click();
 
-            rbHolidayPayNo.Click();
+            rbHolidayPayNo.IsPresent()?.Click();
 
-            rbSickPayNo.Click();
+            rbSickPayNo.IsPresent()?.Click();
 
             rbBonusPayNo.IsPresent()?.Click();
 
@@ -202,7 +209,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rb401KNo.IsPresent()?.Click();
 
-            rbMilitaryDisabilityNo.Click();
+            rbMilitaryDisabilityNo.IsPresent()?.Click();
 
             rbWorkersCompensationAreNo.IsPresent()?.Click();
 

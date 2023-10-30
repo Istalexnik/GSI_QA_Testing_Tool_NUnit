@@ -2,6 +2,12 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
+using NUnit.Framework;
+using GSI_QA_Testing_Tool_NUnit.Data;
+using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace GSI_QA_Testing_Tool_NUnit
 {
@@ -192,7 +198,6 @@ namespace GSI_QA_Testing_Tool_NUnit
 
             return locator;
         }
-
 
 
 
@@ -512,5 +517,34 @@ namespace GSI_QA_Testing_Tool_NUnit
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].setAttribute('target', '_self');", Driver.FindElement(locator));
             return locator;
         }
+
+        public static By OpenAndCloseWindow(this By locator)
+        {
+            string originalWindowHandle = Driver.CurrentWindowHandle;
+
+            SwitchWindow(locator);
+
+            Driver.Close();
+            Driver.SwitchTo().Window(originalWindowHandle);
+            return locator;
+
+
+        }
+
+        public static By SwitchWindow(this By locator)
+        {
+            string originalWindowHandle = Driver.CurrentWindowHandle;
+
+            foreach (string handle in Driver.WindowHandles)
+            {
+                if (handle != originalWindowHandle)
+                {
+                    Driver.SwitchTo().Window(handle);
+                    break;
+                }
+            }
+            return locator;
+        }
+
     }
 }

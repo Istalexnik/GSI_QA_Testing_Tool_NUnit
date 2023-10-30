@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSI_QA_Testing_Tool_NUnit.Data;
+
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -21,6 +23,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
 
             txtAddress1.WaitForElementToBeClickable().SendKeys(TestData.Address1);
+
+            if (new[] {"LA"}.Any(site => TestData.Site.Contains(site)))
+            {
+                txtAddress1.SendKeys(Keys.Tab).WaitForElementToBeStaleAndRefind();
+            }
 
             ddWard.IsPresent()?.SelectDropdownByIndex("1").WaitForElementToBeStaleAndRefind();
 

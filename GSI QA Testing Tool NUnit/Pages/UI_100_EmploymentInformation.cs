@@ -9,13 +9,17 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_100_EmploymentInformation
     {
+        By titleEducationInformation = By.XPath("(//h2[text()='Education Information'])");
+
         By ddCurrentEmpStatus = By.Id("ctl00_Main_content_ucEmployment_ddlEmployStatus");
 
         By ddTypeOfBusiness = By.Id("ctl00_Main_content_ucEmployment_ddlTypeBusiness");
 
         By ddUnempEligibilityStatus = By.Id("ctl00_Main_content_ucEmployment_ddlUnemploymentInsurance");
 
-        By rbLookingForWorkYes = By.Id("ctl00_Main_content_ucEmployment_rblLookingForWork_0");
+        By rbLookingForWorkYes = By.CssSelector("label[for='ctl00_Main_content_ucEmployment_rblLookingForWork_0']");
+
+        By rbCovid19No = By.CssSelector("label[for='ctl00_Main_content_ucEmployment_rblCovid19_1']");
 
         By rbApprenticeshipNo = By.Id("ctl00_Main_content_ucEmployment_rblInterestedInRegisteredApprenticeship_1");
 
@@ -29,13 +33,17 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_100_EmploymentInformation()
         {
+            if (!titleEducationInformation.FindIt()) { return; }
+
             ddCurrentEmpStatus.SelectDropdownByValue("3");
 
             ddTypeOfBusiness.IsPresent()?.SelectDropdownByIndex("1");
 
-            ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1");
+            ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1").WaitForElementToBeStaleAndRefind();
 
             rbLookingForWorkYes.IsPresent()?.Click();
+
+            rbCovid19No.IsPresent()?.Click();
 
             rbApprenticeshipNo.IsPresent()?.Click();
 

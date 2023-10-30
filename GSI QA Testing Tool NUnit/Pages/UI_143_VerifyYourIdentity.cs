@@ -9,13 +9,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_143_VerifyYourIdentity
     {
-        By elementVerifyYourIdentity = By.XPath("(//h2[text()='Verify Your Identity'])");
+        By titleYourIdentity = By.XPath("(//h2[text()='Verify Your Identity'])");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
         public UI_143_VerifyYourIdentity()
         {
-            if (!elementVerifyYourIdentity.FindIt()) { return; }
-
+            if (!titleYourIdentity.FindIt()) { return; }
 
             btnNext.Click();
 

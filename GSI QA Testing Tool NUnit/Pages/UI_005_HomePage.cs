@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using GSI_QA_Testing_Tool_NUnit.Data;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -18,11 +19,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_005_HomePage()
         {
-            if (TestData.Site.Contains("AZ"))
+            if (new[] {"AZ"}.Any(site => TestData.Site.Contains(site)))
             {
                 btnFileRegUIClaim.KeepSameWindow().Click();
-
             }
+
             else
             {
                 ddLanguage.IsPresent()?.SelectDropdownByValue("E");

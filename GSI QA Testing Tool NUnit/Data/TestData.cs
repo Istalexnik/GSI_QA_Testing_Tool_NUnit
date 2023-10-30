@@ -12,7 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         static readonly List<Environment> envs = Environment.CreateEnvironments();
 
-        public static string Site { get; private set; } = "LA UAT";
+        public static string Site { get; private set; } = "PA UAT";
 
         public static string SSN { get; private set; } = "";
         public static string? Employer1 { get; private set; } = "";

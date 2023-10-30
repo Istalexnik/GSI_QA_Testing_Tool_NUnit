@@ -9,6 +9,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_135_MilitaryInformation
     {
+        By titleMilitaryService = By.XPath("(//h2[text()='Military Service'])");
+
         By rbSpouseNo = By.Id("ctl00_Main_content_ucVeteran_rblSpouseEligiblePerson_1");
        
         By rbVeteranNo = By.Id("ctl00_Main_content_ucVeteran_rblMilitaryService_1");
@@ -20,9 +22,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnNext = By.Id("ctl00_Main_content_btnNext");
         public UI_135_MilitaryInformation()
         {
-            if (!rbSpouseNo.FindIt()) { return; }
+            if (!titleMilitaryService.FindIt()) { return; }
 
-            rbSpouseNo.Click();
+            rbSpouseNo.IsPresent()?.Click();
 
             rbVeteranNo.IsPresent()?.Click();
 

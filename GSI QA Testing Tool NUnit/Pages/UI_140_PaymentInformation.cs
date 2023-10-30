@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
@@ -19,6 +20,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By chkIUnderstand = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cbdirectdepositack']");
 
         By btnOk = By.Id("btn-dialog-ok");
+
+        By linkDisclosure = By.Id("predisclosurepdf");
 
         By chkPreferredPaymentMethod = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cbDebitCard']");
 
@@ -46,6 +49,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             chkIUnderstand.IsPresent()?.Click();
 
             btnOk.IsPresent()?.Click();
+
+            linkDisclosure.IsPresent()?.Click().OpenAndCloseWindow();
 
             chkPreferredPaymentMethod.IsPresent()?.Click();
 
