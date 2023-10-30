@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>GSI_QA_Testing_Tool_NUnit</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <!--<ImplicitUsings>enable</ImplicitUsings>-->
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
