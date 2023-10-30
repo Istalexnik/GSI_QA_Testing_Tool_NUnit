@@ -14,6 +14,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_030_UnemploymentInsuranceCompemsation()
         {
+            if (!rbFilingUI.FindIt()) { return; }
+
             rbFilingUI.Click();
 
             btnNext.Click();

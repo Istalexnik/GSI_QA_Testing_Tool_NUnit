@@ -16,6 +16,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_185_EmployerSearch()
         {
+            if (!txtEmployerName.FindIt()) { return; }
+
             txtEmployerName.EnterText(TestData.Employer1, txtSuggestions);
         }
     }

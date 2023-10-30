@@ -13,6 +13,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By ddOtherNotices = By.Id("ctl00_Main_content_ucNotificationMethod_ddlDeterminationNotificationMethod");
         By ddFromWhereAccessing = By.Id("ctl00_Main_content_ucSiteAccess_ddlSiteAccess");
         By dd1099TaxForm = By.Id("ctl00_Main_content_ucNotificationMethod_ddl1099GNotificationMethod");
+        By rbLaborMSG = By.CssSelector("label[for='ctl00_Main_content_ucNotificationMethod_rblSignUpMessageLaborService_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
 
         public UI_085_NotficationMethod()
@@ -21,9 +22,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             ddOtherNotices.IsPresent()?.SelectDropdownByValue("7");
 
-            ddFromWhereAccessing.SelectDropdownByIndex("1");
+            ddFromWhereAccessing.IsPresent()?.SelectDropdownByIndex("1");
 
-            dd1099TaxForm.SelectDropdownByValue("5");
+            dd1099TaxForm.IsPresent()?.SelectDropdownByValue("7");
+
+            rbLaborMSG.IsPresent()?.Click();
 
             btnNext.Click();
         }

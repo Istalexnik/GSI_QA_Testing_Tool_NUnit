@@ -13,12 +13,22 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
        
         By rbVeteranNo = By.Id("ctl00_Main_content_ucVeteran_rblMilitaryService_1");
 
+        By rbServed180DaysNo = By.Id("ctl00_Main_content_ucVeteran_rblServedConsecutiveDaysInActiveDuty_1");
+
+        By ddClassifiedDisabledVeteran = By.Id("ctl00_Main_content_ucVeteran_ddlClassifiedAsDisabledVeteran");
+
         By btnNext = By.Id("ctl00_Main_content_btnNext");
         public UI_135_MilitaryInformation()
         {
+            if (!rbSpouseNo.FindIt()) { return; }
+
             rbSpouseNo.Click();
 
-            rbVeteranNo.Click();
+            rbVeteranNo.IsPresent()?.Click();
+
+            rbServed180DaysNo.IsPresent()?.Click();
+
+            ddClassifiedDisabledVeteran.IsPresent()?.SelectDropdownByIndex("1");
 
             btnNext.Click();
         }

@@ -16,7 +16,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By cbAcknowledgLong = By.Id("ctl00_Main_content_ucUIPayment_cbdebitcardacklongform");
 
+        By chkIUnderstand = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cbdirectdepositack']");
+
         By btnOk = By.Id("btn-dialog-ok");
+
+        By chkPreferredPaymentMethod = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cbDebitCard']");
+
+        By chkDisclosured = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cbAcknowledgeDebitOnPage']");
+     
+        By chkConsent1099 = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_cb1099GConsent_0']");
 
         By rbPaperWeeklyCertsNo = By.CssSelector("label[for='ctl00_Main_content_ucUIPayment_rblWeeklyCert_1']");
 
@@ -35,13 +43,21 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             cbAcknowledgLong.IsPresent()?.Click();
 
+            chkIUnderstand.IsPresent()?.Click();
+
             btnOk.IsPresent()?.Click();
+
+            chkPreferredPaymentMethod.IsPresent()?.Click();
+
+            chkDisclosured.IsPresent()?.Click();
+
+            chkConsent1099.IsPresent()?.Click();
 
             rbPaperWeeklyCertsNo.IsPresent()?.Click();
 
-            rbFederalTaxYes.Click();
+            rbFederalTaxYes.IsPresent()?.Click();
 
-            rbStateTaxYes.Click();
+            rbStateTaxYes.IsPresent()?.Click();
 
             rbSnapNo.IsPresent()?.Click();
 

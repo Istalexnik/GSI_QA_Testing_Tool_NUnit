@@ -15,6 +15,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_010_IntroPage()
         {
+            if (!btnRegistration.FindIt()) { return; }
+
             btnRegistration.JSClick();
         }
 

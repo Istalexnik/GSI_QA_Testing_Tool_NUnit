@@ -83,6 +83,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_140_PaymentInformation();
 
+            new UI_143_VerifyYourIdentity();
+
             new UI_145_UnemploymentCompensation();
 
             new UI_180_EmploymentHistoryBeforeFirst();

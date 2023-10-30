@@ -15,11 +15,19 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By txtSuggestions = By.Id("ac_results");
 
+        By txtPhone1 = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmployerPhone1");
+
+        By txtPhone2 = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmployerPhone2");
+
+        By txtPhone3 = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmployerPhone3");
+
         By rbDCGovermentAgencyNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblAgency_1']");
 
         By rbEarnAtLeastYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblEmployerLiable_0']");
 
         By rbLastEmployerYes = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblLastEmployer_0']");
+
+        By rbTemporaryEmployerNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblIsThisEmployerTempOrAgency_1']");
 
         By txtJobTitle = By.Id("ctl00_Main_content_ucIndEmpHistory_txtJobTitle");
 
@@ -49,6 +57,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         
         By ddSeparationCategory = By.Id("ctl00_Main_content_ucIndEmpHistory_ddlLeaveReasonSubType");
 
+        By rbVoluntiryLayoffNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblVoluntaryLayoff_1']");
+
         By txtWorkEndDate = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEndDate");
 
         By rbRecallNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblIntendToRecall_1");
@@ -56,10 +66,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbFamilyResponsobilitiesNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblFamilyResponsibilities_1']");
 
         By rbEducationalNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblEducationalInstitution_1");
+        
+        By rbSchoolBusNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblSchoolBusCompanyEmp_1']");
 
         By rbOfficerRelativeNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblCorporateOfficer_1");
 
         By rbTransferOutOfCountryNo = By.Id("ctl00_Main_content_ucIndEmpHistory_rblTransferOutOfCountry_1");
+
+        By rbSpouseOfEmployerNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblSpouseorChildofEmployer_1']");
 
         By rbLackOfTransportationNo = By.CssSelector("label[for='ctl00_Main_content_ucIndEmpHistory_rblLackOfTransportation_1']");
 
@@ -101,17 +115,26 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             if (string.IsNullOrEmpty(txtEmployerName.WaitForElementToBeClickable().GetText()))
             {
-
+                txtEmployerName.EnterText(TestData.Employer1, txtSuggestions).WaitForElementToBeStaleAndRefind();
             }
+
+            txtPhone1.Clear().SendKeys(TestData.Phone.Substring(0, 3));
+
+            txtPhone2.Clear().SendKeys(TestData.Phone.Substring(3, 3));
+
+            txtPhone3.Clear().SendKeys(TestData.Phone.Substring(6, 4));
 
             rbDCGovermentAgencyNo.IsPresent()?.Click();
 
             rbLastEmployerYes.WaitForElementToBeClickable().Click();
 
             rbEarnAtLeastYes.IsPresent()?.WaitForElementToBeClickable().Click();
+
             Thread.Sleep(5000);
-            
-            txtJobTitle.EnterText(TestData.JobTitle, txtSuggestions).WaitForElementToBeStaleAndRefind();
+
+            rbTemporaryEmployerNo.IsPresent()?.Click();
+
+            txtJobTitle.EnterText2(TestData.JobTitle, txtSuggestions).WaitForElementToBeStaleAndRefind();
 
             ddEmployerType.SelectDropdownByIndex("1");
 
@@ -133,12 +156,14 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtearningsThisWeek.SendKeys("0");
 
-            txtHoursThisWeek.SendKeys("0");
+            txtHoursThisWeek.IsPresent()?.SendKeys("0");
 
             ddSeparationReason.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
 
             ddSeparationCategory.IsPresent()?.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
 
+            rbVoluntiryLayoffNo.IsPresent()?.Click();
+            
             txtWorkEndDate.SendKeys(TestData.WorkEndDate);
 
             rbRecallNo.IsPresent()?.Click();
@@ -147,9 +172,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbEducationalNo.Click();
 
-            rbOfficerRelativeNo.Click();
+            rbSchoolBusNo.IsPresent()?.Click();
+
+            rbOfficerRelativeNo.IsPresent()?.Click();
 
             rbTransferOutOfCountryNo.Click();
+
+            rbSpouseOfEmployerNo.IsPresent()?.Click();
 
             rbLackOfTransportationNo.IsPresent()?.Click();
 
@@ -163,7 +192,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbSickPayNo.Click();
 
-            rbBonusPayNo.Click();
+            rbBonusPayNo.IsPresent()?.Click();
 
             rbWarnPaymentNo.IsPresent()?.Click();
 
@@ -175,9 +204,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbMilitaryDisabilityNo.Click();
 
-            rbWorkersCompensationAreNo.Click();
+            rbWorkersCompensationAreNo.IsPresent()?.Click();
 
-            rbWorkersCompensationDidNo.Click();
+            rbWorkersCompensationDidNo.IsPresent()?.Click();
 
             btnNext.Click();
 

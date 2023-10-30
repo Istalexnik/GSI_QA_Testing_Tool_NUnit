@@ -35,15 +35,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1");
 
-            rbLookingForWorkYes.Click();
+            rbLookingForWorkYes.IsPresent()?.Click();
 
             rbApprenticeshipNo.IsPresent()?.Click();
 
-            rbCertificationsNo.Click();
+            rbCertificationsNo.IsPresent()?.Click();
 
             rbDomesticViolenceNo.IsPresent()?.Click();
 
-            rbFarmworkerNo.Click();
+            rbFarmworkerNo.IsPresent()?.Click();
 
             btnNext.Click();
 

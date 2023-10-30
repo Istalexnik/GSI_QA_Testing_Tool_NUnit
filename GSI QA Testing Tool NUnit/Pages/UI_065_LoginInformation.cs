@@ -19,6 +19,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtEmail = By.Id("ctl00_Main_content_ucEmailTextBox_txtEmail");
         By txtEmail2 = By.Id("ctl00_Main_content_ucEmailTextBox_txtEmailConfirm");
         By txtDOB = By.Id("ctl00_Main_content_ucRegDemographics_txtDOB");
+        By txtDOBConfirm = By.Id("ctl00_Main_content_ucRegDemographics_txtDOBConfirm");
         By txtCityOfBirth = By.Id("ctl00_Main_content_ucRegDemographics_txtCityOfBirth");
         By txtMothersName = By.Id("ctl00_Main_content_ucRegDemographics_txtMothersMaidenName");
         By rbGenderMail = By.CssSelector("label[for='ctl00_Main_content_ucRegDemographics_rblGender_1']");
@@ -29,7 +30,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             txtUsername.SendKeys(TestData.Username);          
 
-            txtPassword.WaitForElementToBeVisible().SendKeys(TestData.Password);
+            txtPassword.WaitForElementToBeClickable().SendKeys(TestData.Password);
 
             txtPassword2.SendKeys(TestData.Password);
 
@@ -39,7 +40,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtSecurityResponse.SendKeys(TestData.SecurityResponse);
 
-            Thread.Sleep(100);
+            Thread.Sleep(200);
 
             txtZip.WaitForElementToBeClickable().SendKeys(TestData.Zip);
             
@@ -50,6 +51,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             txtEmail2.SendKeys(TestData.Email);
 
             txtDOB.SendKeys(TestData.DOB);
+
+            txtDOBConfirm.IsPresent()?.SendKeys(TestData.DOB);
 
             txtCityOfBirth.IsPresent()?.SendKeys("Tampa");
 

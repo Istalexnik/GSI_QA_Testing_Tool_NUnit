@@ -12,7 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         static readonly List<Environment> envs = Environment.CreateEnvironments();
 
-        public static string Site { get; private set; } = "TN UAT";
+        public static string Site { get; private set; } = "LA UAT";
 
         public static string SSN { get; private set; } = "";
         public static string? Employer1 { get; private set; } = "";
@@ -71,6 +71,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 DOB = "11/11/1959";
             }
 
+            Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "01";
+
             if (String.IsNullOrWhiteSpace(Email))
             {
                 Email = Username + "@geosolinc.com";
@@ -96,10 +98,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 WorkEndDate = DateTime.Today.ToString("MM/dd/yyyy");
             }
 
-            Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + 1;
             Password = "Olga2011!!!!!!";
-            SecurityResponse = "Test";
-            JobTitle = "Dairy Clerk";
+            SecurityResponse = "test";
+            JobTitle = "test";
 
         }
 

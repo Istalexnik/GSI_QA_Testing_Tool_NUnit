@@ -22,7 +22,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             cbRace.Click();
 
-            rbLimitedEnglishNo.Click();
+            rbLimitedEnglishNo.IsPresent()?.Click();
 
             btnNext.Click();
         }

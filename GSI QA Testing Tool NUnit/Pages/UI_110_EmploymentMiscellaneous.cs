@@ -12,7 +12,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbAttendingTrainingNo = By.Id("ctl00_Main_content_ucUIEmploymentStatus_rblAttendingTraining_1");
         
         By rbComissionBasisNo = By.CssSelector("label[for='ctl00_Main_content_ucUIEmploymentStatus_rblCommissionBasis_1']");
-           
+        
+        By rbRefusedJobNo = By.CssSelector("label[for='ctl00_Main_content_ucUIEmploymentStatus_rblRefusedAJobOffer_1']");
+        
+        By rbRefusedReferralNo = By.CssSelector("label[for='ctl00_Main_content_ucUIEmploymentStatus_rblRefusedAReferralToWork_1']");
+                
         By rbResultOfTradeNo = By.Id("ctl00_Main_content_ucUIEmploymentStatus_rblCertifiedTrade_1");
 
         By rbProfessionalAthleteNo = By.Id("ctl00_Main_content_ucUIEmploymentStatus_rblWorkedAsProfessionalAthlete_1");
@@ -22,9 +26,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnNext = By.Id("ctl00_Main_content_btnNext");
         public UI_110_EmploymentMiscellaneous()
         {
+            if (!rbAttendingTrainingNo.FindIt()) { return; }
+
             rbAttendingTrainingNo.Click();
 
             rbComissionBasisNo.IsPresent()?.Click();
+
+            rbRefusedJobNo.IsPresent()?.Click();
+
+            rbRefusedReferralNo.IsPresent()?.Click();
 
             rbResultOfTradeNo.Click();
 

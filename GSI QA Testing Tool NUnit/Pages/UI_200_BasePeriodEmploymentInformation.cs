@@ -14,7 +14,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnNext = By.Id("ctl00_Main_content_btnNextMonetaryReview");
         public UI_200_BasePeriodEmploymentInformation()
         {
-            rbAgreeWithWages.Click();
+            if (!btnNext.FindIt()) { return; }
+
+            rbAgreeWithWages.IsPresent()?.Click();
 
             btnNext.Click();
         }

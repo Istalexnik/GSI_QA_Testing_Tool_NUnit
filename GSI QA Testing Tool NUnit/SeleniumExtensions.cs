@@ -343,6 +343,32 @@ namespace GSI_QA_Testing_Tool_NUnit
         }
 
 
+        public static By EnterText2(this By locator, string? text, By suggesstionsLocator)
+        {
+            try
+            {
+                IWebElement element = Driver.FindElement(locator);
+                Thread.Sleep(500);
+
+                element.SendKeys(text + Keys.ArrowUp);
+
+                Thread.Sleep(2500);
+
+                element.SendKeys(Keys.ArrowDown + Keys.Enter);
+
+            }
+            catch (NoSuchElementException)
+            {
+                throw new NoSuchElementException(string.Format(ErrorMessages["ElementNotFound"], locator, "SendKeys()"));
+            }
+            catch (ElementNotInteractableException)
+            {
+
+            }
+            return locator;
+        }
+
+
 
         /// <summary>
         /// Retrieves the text of the element specified by the locator.
@@ -362,7 +388,12 @@ namespace GSI_QA_Testing_Tool_NUnit
         }
 
 
+        public static By Clear(this By locator)
+        {
+            Driver.FindElement(locator).Clear();
 
+            return locator;
+        }
 
         /// <summary>
         /// Performs a click action on all visible elements matched by the specified locator, 
@@ -473,6 +504,12 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
             var dropdown = new SelectElement(Driver.FindElement(locator));
             dropdown.SelectByValue(value);
+            return locator;
+        }
+
+        public static By KeepSameWindow(this By locator)
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].setAttribute('target', '_self');", Driver.FindElement(locator));
             return locator;
         }
     }
