@@ -19,7 +19,7 @@ namespace GSI_QA_Testing_Tool_NUnit
         {
             return new List<Environment>
       {
-    new Environment("IA UAT", "https://uat-app-vos19000000-gus.geosolinc.com/vosnet/default.aspx", "50031", "Iowa", "IA", "SERDINO INC", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
+    new Environment("IA UAT", "https://uat-app-vos19000000-gus.geosolinc.com/vosnet/default.aspx", "50031", "Iowa", "IA", "LAXMI JT LLC", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("IA QA", "https://qa-app-vos19000000-gus.geosolinc.com/vosnet/default.aspx", "50031", "Iowa", "IA", "Target", "Amazon Com Services Inc", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("IA STAGING", "https://staging-app-vos19000000.geosolinc.com/vosnet/default.aspx", "50031", "Iowa", "IA", "Target", "Amazon Com Services Inc", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("PR UAT", "https://uat-app-vos72000000.geosolinc.com/vosnet/default.aspx", "00780", "Puerto Rico", "PR", "Publix", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),

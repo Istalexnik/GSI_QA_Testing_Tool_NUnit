@@ -10,10 +10,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-
-        public static string Site { get; private set; } = "AZ UAT";
-        public static string SSN { get; private set; } = "214130103";
+        public static int[] Type { get; private set; } = { 1 };
+        public static string Site { get; private set; } = "NE UAT";
+        public static string SSN { get; private set; } = "";
         public static string? Employer1 { get; private set; } = "";
+        public static bool useTwoEmployers  { get; private set; } = false;
         public static string FirstName { get; private set; } = "";
         public static string LastName { get; private set; } = "";
         public static string DOB { get; private set; } = "";
@@ -106,12 +107,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 
             if (String.IsNullOrWhiteSpace(WorkBeginDate2))
             {
-                WorkBeginDate1 = "11/11/2011";
+                WorkBeginDate2 = "11/11/2011";
             }
 
             if (String.IsNullOrWhiteSpace(WorkEndDate2))
             {
-                WorkEndDate1 = DateTime.Today.ToString("MM/dd/yyyy");
+                WorkEndDate2 = DateTime.Today.ToString("MM/dd/yyyy");
             }
 
             Password = "Olga2011!!!!!!";

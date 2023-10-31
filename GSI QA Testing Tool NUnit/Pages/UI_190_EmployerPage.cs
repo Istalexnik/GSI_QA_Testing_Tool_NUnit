@@ -16,6 +16,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                                
         By txtEmployerName = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmpName");
 
+        By spanEmployerName = By.Id("ctl00_Main_content_ucIndEmpHistory_lbl_txtEmpName");
+
+        By txtEmployerNameOnCheckStub = By.Id("ctl00_Main_content_ucIndEmpHistory_txtNameOnCheckStub");
+
         By txtSuggestions = By.Id("ac_results");
 
         By txtPhone1 = By.Id("ctl00_Main_content_ucIndEmpHistory_txtEmployerPhone1");
@@ -118,7 +122,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         public UI_190_EmployerPage(string employer, string beginDate, string endDate)
         {
 
-            if (string.IsNullOrEmpty(txtEmployerName.WaitForElementToBeClickable().GetText()))
+            if (txtEmployerName.IsClickable() && string.IsNullOrEmpty(txtEmployerName.WaitForElementToBeClickable().GetText()))
             {
                 txtEmployerName.EnterText(employer, txtSuggestions).WaitForElementToBeStaleAndRefind();
             }
@@ -163,7 +167,17 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtHoursThisWeek.IsPresent()?.SendKeys("0");
 
-            ddSeparationReason.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
+            ddSeparationReason.SelectDropdownByPartialText("Lay");
+
+            if (!TestData.Type.Contains(3))
+            {
+                ddSeparationReason.WaitForElementToBeStaleAndRefind();
+            }
+
+            if (TestData.Type.Contains(3))
+            {
+                txtEmployerNameOnCheckStub.SendKeys(spanEmployerName.Text());
+            }
 
             ddSeparationCategory.IsPresent()?.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
             

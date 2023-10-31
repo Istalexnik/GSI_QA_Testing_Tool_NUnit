@@ -278,6 +278,13 @@ namespace GSI_QA_Testing_Tool_NUnit
             return Driver.FindElements(locator).Count > 0;
         }
 
+        public static bool IsClickable(this By locator)
+        {
+            return Driver.FindElements(locator).Count > 0 
+                && Driver.FindElement(locator).Displayed 
+                && Driver.FindElement(locator).Enabled ;
+        }
+
         /// <summary>
         /// Sends the specified text to the element determined by the locator.
         /// </summary>
@@ -392,6 +399,10 @@ namespace GSI_QA_Testing_Tool_NUnit
             }
         }
 
+        public static string Text(this By locator)
+        {
+            return Driver.FindElement(locator).Text;
+        }
 
         public static By Clear(this By locator)
         {
