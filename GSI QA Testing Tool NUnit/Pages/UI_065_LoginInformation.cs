@@ -29,7 +29,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_065_LoginInformation()
         {
-            txtUsername.SendKeys(TestData.Username);          
+            txtUsername.SendKeys(TestData.Username);
+
+            Thread.Sleep(200);
 
             txtPassword.WaitForElementToBeClickable().SendKeys(TestData.Password);
 

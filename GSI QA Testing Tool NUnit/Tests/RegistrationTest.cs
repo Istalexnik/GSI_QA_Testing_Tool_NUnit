@@ -91,9 +91,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_180_EmploymentHistoryBeforeFirst();
 
-            new UI_185_EmployerSearch();
+            new UI_185_EmployerSearch(TestData.Employer1!);
 
-            new UI_190_EmployerPage();
+            new UI_190_EmployerPage(TestData.Employer1!, TestData.WorkBeginDate1, TestData.WorkEndDate1);
+
+            new UI_193_YourEmploymentHistoryAfterFirst();
 
             new UI_195_EmploymentHistoryAfterFirst();
 

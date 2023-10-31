@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_100_EmploymentInformation
     {
-        By titleEducationInformation = By.XPath("(//h2[text()='Education Information'])");
+        By titleEmploymentInformation = By.XPath("(//h2[text()='Employment Information'])");
 
         By ddCurrentEmpStatus = By.Id("ctl00_Main_content_ucEmployment_ddlEmployStatus");
 
@@ -33,13 +34,19 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_100_EmploymentInformation()
         {
-            if (!titleEducationInformation.FindIt()) { return; }
+            if (!titleEmploymentInformation.FindIt()) { return; }
 
             ddCurrentEmpStatus.SelectDropdownByValue("3");
 
             ddTypeOfBusiness.IsPresent()?.SelectDropdownByIndex("1");
 
-            ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1").WaitForElementToBeStaleAndRefind();
+            ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1");
+
+
+            //if (!new[] { "NE", "AZ"}.Any(site => TestData.Site.Contains(site)))
+            //{
+            //    ddUnempEligibilityStatus.WaitForElementToBeStaleAndRefind();
+            //}
 
             rbLookingForWorkYes.IsPresent()?.Click();
 

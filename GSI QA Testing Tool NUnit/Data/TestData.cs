@@ -10,11 +10,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-        static readonly List<Environment> envs = Environment.CreateEnvironments();
 
-        public static string Site { get; private set; } = "PA UAT";
-
-        public static string SSN { get; private set; } = "";
+        public static string Site { get; private set; } = "AZ UAT";
+        public static string SSN { get; private set; } = "214130103";
         public static string? Employer1 { get; private set; } = "";
         public static string FirstName { get; private set; } = "";
         public static string LastName { get; private set; } = "";
@@ -23,14 +21,18 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
         public static string Email { get; private set; } = "";
         public static string Address1 { get; private set; } = "";
         public static string Phone { get; private set; } = "";
-        public static string WorkBeginDate { get; private set; } = "";
-        public static string WorkEndDate { get; private set; } = "";
+        public static string WorkBeginDate1 { get; private set; } = "";
+        public static string WorkEndDate1 { get; private set; } = "";
+        public static string? Employer2 { get; private set; } = "";
+        public static string WorkBeginDate2 { get; private set; } = "";
+        public static string WorkEndDate2 { get; private set; } = "";
         public static string? StateAbbreviation { get; private set; }
         public static string? Url { get; private set; }
         public static string Username { get; private set; }
         public static string Password { get; private set; }
         public static string SecurityResponse { get; private set; }
         public static string JobTitle { get; private set; }
+        static readonly List<Environment> envs = Environment.CreateEnvironments();
         static TestData()
         {
             if (String.IsNullOrWhiteSpace(SSN))
@@ -50,6 +52,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 if (String.IsNullOrWhiteSpace(Employer1))
                 {
                     Employer1 = selectedEnvironment.Employer1;
+                }
+                if (String.IsNullOrWhiteSpace(Employer2))
+                {
+                    Employer2 = selectedEnvironment.Employer2;
                 }
             } else
             {
@@ -88,14 +94,24 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 Phone = "8135647356";
             }
 
-            if (String.IsNullOrWhiteSpace(WorkBeginDate))
+            if (String.IsNullOrWhiteSpace(WorkBeginDate1))
             {
-                WorkBeginDate = "11/11/2011";
+                WorkBeginDate1 = "11/11/2011";
             }
 
-            if (String.IsNullOrWhiteSpace(WorkEndDate))
+            if (String.IsNullOrWhiteSpace(WorkEndDate1))
             {
-                WorkEndDate = DateTime.Today.ToString("MM/dd/yyyy");
+                WorkEndDate1 = DateTime.Today.ToString("MM/dd/yyyy");
+            }
+
+            if (String.IsNullOrWhiteSpace(WorkBeginDate2))
+            {
+                WorkBeginDate1 = "11/11/2011";
+            }
+
+            if (String.IsNullOrWhiteSpace(WorkEndDate2))
+            {
+                WorkEndDate1 = DateTime.Today.ToString("MM/dd/yyyy");
             }
 
             Password = "Olga2011!!!!!!";

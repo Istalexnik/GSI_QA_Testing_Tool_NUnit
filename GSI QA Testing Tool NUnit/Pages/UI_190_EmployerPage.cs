@@ -115,12 +115,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By btnConfirm = By.XPath("//button[@id='btn-dialog-save']");
 
 
-        public UI_190_EmployerPage()
+        public UI_190_EmployerPage(string employer, string beginDate, string endDate)
         {
 
             if (string.IsNullOrEmpty(txtEmployerName.WaitForElementToBeClickable().GetText()))
             {
-                txtEmployerName.EnterText(TestData.Employer1, txtSuggestions).WaitForElementToBeStaleAndRefind();
+                txtEmployerName.EnterText(employer, txtSuggestions).WaitForElementToBeStaleAndRefind();
             }
 
             txtPhone1.Clear().SendKeys(TestData.Phone.Substring(0, 3));
@@ -155,7 +155,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbComissionBasedNo.Click();
 
-            txtWorkBeginDate.SendKeys(TestData.WorkBeginDate);
+            txtWorkBeginDate.SendKeys(beginDate);
 
             rbCurrentlyEmployedNo.Click();
 
@@ -171,7 +171,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbVoluntiryLayoffNo.IsPresent()?.Click();
             
-            txtWorkEndDate.SendKeys(TestData.WorkEndDate);
+            txtWorkEndDate.SendKeys(endDate);
 
             rbRecallNo.IsPresent()?.Click();
 

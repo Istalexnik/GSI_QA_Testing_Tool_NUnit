@@ -16,11 +16,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtSuggestions = By.Id("ac_results");
 
 
-        public UI_185_EmployerSearch()
+        public UI_185_EmployerSearch(string employer)
         {
             if (!txtEmployerName.FindIt()) { return; }
 
-            txtEmployerName.EnterText(TestData.Employer1, txtSuggestions);
+            txtEmployerName.EnterText(employer, txtSuggestions);
         }
     }
 }
