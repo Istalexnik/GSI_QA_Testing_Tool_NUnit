@@ -1,8 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
@@ -19,20 +21,47 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By ddClassifiedDisabledVeteran = By.Id("ctl00_Main_content_ucVeteran_ddlClassifiedAsDisabledVeteran");
 
+        By ddWoundedYes = By.Id("ctl00_Main_content_ucVeteran_rblWounded_0");
+
+        By ddTAPNo = By.Id("ctl00_Main_content_ucVeteran_rblTAPWorkshop_1");
+
+        By dd24Or12OfdischargeNo = By.Id("ctl00_Main_content_ucVeteran_rblTransitioningServiceMember_1");
+
         By btnNext = By.Id("ctl00_Main_content_btnNext");
+
+
         public UI_135_MilitaryInformation()
         {
             if (!titleMilitaryService.FindIt()) { return; }
 
             rbSpouseNo.IsPresent()?.Click();
 
-            rbVeteranNo.IsPresent()?.Click();
+            if (!TestData.Type.Contains(2))
+            {
+                rbVeteranNo.IsPresent()?.Click();
+            }
 
             rbServed180DaysNo.IsPresent()?.Click();
 
             ddClassifiedDisabledVeteran.IsPresent()?.SelectDropdownByIndex("1");
 
-            btnNext.Click();
+            if (TestData.Type.Contains(2))
+            {
+                ddWoundedYes.Click();
+                ddTAPNo.Click();
+                dd24Or12OfdischargeNo.Click();
+                btnNext.WaitForElementToBeClickable(25);
+                //if (new[] { "NE" }.Any(site => TestData.Site.Contains(site)))
+                //{
+                //    Thread.Sleep(15000);
+                //}
+            }
+
+
+                    btnNext.Click();
+ 
+
+           
         }
     }
 }

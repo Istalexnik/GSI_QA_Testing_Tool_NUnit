@@ -20,9 +20,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         public UI_195_EmploymentHistoryAfterFirst()
         {
 
-            if (TestData.Type.Contains(2) && TestData.Type.Contains(3))
+            if (TestData.Type.Contains(3) && TestData.Type.Contains(2))
             {
-                linkEdit.Click();
+                btnNext.Click();
+                new UI_190_EmployerPage(TestData.Employer2!, TestData.WorkBeginDate2, TestData.WorkEndDate2);
+
             }
             else if(TestData.useTwoEmployers)
             {

@@ -121,11 +121,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_190_EmployerPage(string employer, string beginDate, string endDate)
         {
+            //workaround because page is not loaded yet but the phone is already searched for(needs some investigation)
+            txtPhone1.WaitForElementToBeVisible();
 
             if (txtEmployerName.IsClickable() && string.IsNullOrEmpty(txtEmployerName.WaitForElementToBeClickable().GetText()))
             {
                 txtEmployerName.EnterText(employer, txtSuggestions).WaitForElementToBeStaleAndRefind();
             }
+
+
 
             txtPhone1.Clear().SendKeys(TestData.Phone.Substring(0, 3));
 
@@ -142,6 +146,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             Thread.Sleep(5000);
 
             rbTemporaryEmployerNo.IsPresent()?.JSClick();
+
+            if (string.IsNullOrEmpty(txtEmployerNameOnCheckStub.WaitForElementToBeClickable().GetText()))
+            {
+                txtEmployerNameOnCheckStub.SendKeys(spanEmployerName.Text());
+            }
 
             txtJobTitle.EnterText2(TestData.JobTitle, txtSuggestions).WaitForElementToBeStaleAndRefind();
 
@@ -167,17 +176,20 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtHoursThisWeek.IsPresent()?.SendKeys("0");
 
-            ddSeparationReason.SelectDropdownByPartialText("Lay");
-
-            if (!TestData.Type.Contains(3))
+            try
             {
-                ddSeparationReason.WaitForElementToBeStaleAndRefind();
+                ddSeparationReason.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
             }
-
-            if (TestData.Type.Contains(3))
+            catch(WebDriverTimeoutException)
             {
-                txtEmployerNameOnCheckStub.SendKeys(spanEmployerName.Text());
+              //UCFE doesn't have refresh after separation entry so just catch the exception and move on
             }
+            //if (!TestData.Type.Contains(3))
+            //{
+            //    ddSeparationReason.WaitForElementToBeStaleAndRefind();
+            //}
+
+
 
             ddSeparationCategory.IsPresent()?.SelectDropdownByPartialText("Lay").WaitForElementToBeStaleAndRefind();
             

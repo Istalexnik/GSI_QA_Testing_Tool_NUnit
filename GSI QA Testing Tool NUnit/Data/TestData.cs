@@ -10,8 +10,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-        public static int[] Type { get; private set; } = { 1 };
-        public static string Site { get; private set; } = "NE UAT";
+        public static int[] Type { get; private set; } = { 4 };
+        public static string Site { get; private set; } = "PA UAT";
         public static string SSN { get; private set; } = "";
         public static string? Employer1 { get; private set; } = "";
         public static bool useTwoEmployers  { get; private set; } = false;
@@ -33,6 +33,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
         public static string Password { get; private set; }
         public static string SecurityResponse { get; private set; }
         public static string JobTitle { get; private set; }
+        public static string CreditWeeks { get; private set; } = "13";
         static readonly List<Environment> envs = Environment.CreateEnvironments();
         static TestData()
         {

@@ -31,7 +31,7 @@ namespace GSI_QA_Testing_Tool_NUnit
     new Environment("DC PFL UAT", "https://uat-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("DC PFL CUAT", "https://cuat-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("DC PFL STAGING", "https://staging-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
-    new Environment("PA UAT", "https://uat-app-vos42000000.geosolinc.com/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
+    new Environment("PA UAT", "https://uat-app-vos42000000.geosolinc.com/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Amazon", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("PA CIT", "https://cit.benefits.uc.pa.gov/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Tampa Toyota", "Gsisa02", "UIgsiA1*"),
     new Environment("PA CUAT", "https://uat.benefits.uc.pa.gov/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "Target", "Toyota", "gsisa0", "UIgsiA1*"),
     new Environment("PA QA", "https://qa-app-vos42000000.geosolinc.com/vosnet/default.aspx", "17104", "Pennsylvania", "PA", "SERDINO INC", "Publix", "GSISA0", "GeoIAGUSSol22*@"),
