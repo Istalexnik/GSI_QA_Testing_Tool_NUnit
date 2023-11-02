@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using GSI_QA_Testing_Tool_NUnit.Data;
+using System.Threading;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -26,7 +27,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             else
             {
-                ddLanguage.IsPresent()?.SelectDropdownByValue("E");
+                if (new[] { "PR" }.Any(site => TestData.Site.Contains(site)))
+                {
+                    ddLanguage.WaitFor(300).SelectDropdownByValue("E");
+                }
+
                 btnLogin.IsPresent()?.Click();
                 btnLogin2.IsPresent()?.Click();
                 btnSignInRegister.IsPresent()?.Click();

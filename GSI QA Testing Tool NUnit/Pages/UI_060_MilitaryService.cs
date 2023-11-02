@@ -12,6 +12,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
     {
         By rbMilitaryServiceNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblMilitaryService_1']");
         By rbMilitaryServiceYes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblMilitaryService_0']");
+        By rbLocatedInHostStateYes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblPhysicallyInState_0']");
+        By txtAddress = By.Id("ctl00_Main_content_Wizard1_txtMilitaryAddress1");
+        By txtZip = By.Id("ctl00_Main_content_Wizard1_txtMilitaryZip");
+        By txtCity = By.Id("ctl00_Main_content_Wizard1_txtMilitaryCity");
         By btnNext = By.Id("ctl00_Main_content_Wizard1_StepNavigationTemplateContainerID_StepNextButton");
 
         By rbAddMilitaryEmployerYes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryServiceHistory_rbAddNewEmp_0']");
@@ -24,8 +28,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By txtSeparationDate = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_txtServiceSeparationDate");
         By ddCharacterOfService = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_ddlDischargeStatus");
         By ddReasonForSeparation = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_ddlReasonForSeparation");
+        By rbGovernmentShutdownNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblSepDueToGovShutdown_1']");
         By ddPayGrade = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_ddlPayGrade");
         By txtAccruedDaysOfLeave = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_txtAccuredDaysOfLeave");
+        By txtLostDays = By.Id("ctl00_Main_content_Wizard1_ucMilitaryService_txtLostDays");
         By rbPhysicalDisabilityNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblDischargePhysicalDisability_1']");
         By rbMilitaryRetireeNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblMilitaryRetiree_1']");
         By rbCompletedFirstTermNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblCompletedFirstFullTermDuty_1']");
@@ -43,6 +49,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             else
             {
                 rbMilitaryServiceYes.Click();
+                rbLocatedInHostStateYes.IsPresent()?.Click();
+                txtAddress.IsPresent()?.SendKeys(TestData.Address1);
+                txtZip.IsPresent()?.SendKeys(TestData.Zip);
+                txtCity.IsPresent()?.SendKeys("City");
                 btnNext.Click();
 
                 //adding employer
@@ -56,14 +66,16 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 txtEntryDate.SendKeys(TestData.WorkBeginDate1);
                 txtSeparationDate.SendKeys(TestData.WorkEndDate1);
                 ddCharacterOfService.SelectDropdownByIndex("1");
-                ddReasonForSeparation.SelectDropdownByIndex("1");
+                ddReasonForSeparation.IsPresent()?.SelectDropdownByIndex("1");
+                rbGovernmentShutdownNo.IsPresent()?.Click();
                 ddPayGrade.SelectDropdownByIndex("1");
                 txtAccruedDaysOfLeave.SendKeys("0");
+                txtLostDays.IsPresent()?.SendKeys("0");
                 rbPhysicalDisabilityNo.Click();
                 rbMilitaryRetireeNo.Click();
                 rbCompletedFirstTermNo.Click();
                 rbAppliedForAllowanceNo.Click();
-                rbAppliedForAssistanceNo.Click();
+                rbAppliedForAssistanceNo.IsPresent()?.Click();
                 btnNext.Click();
 
                 //adding employer

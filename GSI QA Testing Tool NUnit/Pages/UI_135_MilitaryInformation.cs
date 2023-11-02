@@ -47,14 +47,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             if (TestData.Type.Contains(2))
             {
-                ddWoundedYes.Click();
+                ddWoundedYes.IsPresent()?.Click();
                 ddTAPNo.Click();
-                dd24Or12OfdischargeNo.Click();
+                dd24Or12OfdischargeNo.IsPresent()?.Click();
                 btnNext.WaitForElementToBeClickable(25);
-                //if (new[] { "NE" }.Any(site => TestData.Site.Contains(site)))
-                //{
-                //    Thread.Sleep(15000);
-                //}
+
             }
 
 

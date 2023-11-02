@@ -10,6 +10,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_180_EmploymentHistoryBeforeFirst
     {
+        By titlePartiallyCompletedEmploymentHistoryy = By.XPath("(//h2[text()='Partially Completed Employment History'])");
+
         By rbAddEmployerYes = By.Id("ctl00_Main_content_rblAddAnotherEntry_0");
 
         By linkEdit = By.Id("ctl00_Main_content_ucIndEmpHistory_grdIndEmpHistory_ctl02_lnkEditAction");
@@ -20,7 +22,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             if (TestData.Type.Contains(2) || TestData.Type.Contains(3))
             {
-                linkEdit.Click();
+              if (titlePartiallyCompletedEmploymentHistoryy.FindIt())
+                {
+                    btnNext.Click();
+                }
+                else {
+                    linkEdit.Click();
+                }
             }
             else
             {

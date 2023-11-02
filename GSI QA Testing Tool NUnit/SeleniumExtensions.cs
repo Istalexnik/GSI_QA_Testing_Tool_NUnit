@@ -201,8 +201,12 @@ namespace GSI_QA_Testing_Tool_NUnit
 
 
 
-
-
+        //just wait
+        public static By WaitFor(this By locator, int? waitTimeInMS = 500)
+        {
+            Thread.Sleep((int)waitTimeInMS!);
+            return locator;
+        }
 
 
         /// <summary>
