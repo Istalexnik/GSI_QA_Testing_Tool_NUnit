@@ -50,6 +50,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 ddWoundedYes.IsPresent()?.Click();
                 ddTAPNo.Click();
                 dd24Or12OfdischargeNo.IsPresent()?.Click();
+                Thread.Sleep(500);
                 btnNext.WaitForElementToBeClickable(25);
 
             }

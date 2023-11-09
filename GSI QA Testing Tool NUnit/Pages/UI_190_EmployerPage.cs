@@ -244,6 +244,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             btnNext.Click();
 
             btnConfirm.LoopAndClickAllVisible();
+
+            new UI_193_YourEmploymentHistoryAfterFirst();
         }
     }
 }
