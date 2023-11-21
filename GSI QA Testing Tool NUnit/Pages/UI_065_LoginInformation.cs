@@ -31,7 +31,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         {
             txtUsername.SendKeys(TestData.Username);
 
-            Thread.Sleep(200);
+            Thread.Sleep(300);
 
             txtPassword.WaitForElementToBeClickable().SendKeys(TestData.Password);
 

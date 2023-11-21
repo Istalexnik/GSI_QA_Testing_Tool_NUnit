@@ -141,9 +141,11 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbLastEmployerYes.WaitForElementToBeClickable().Click();
 
+            Thread.Sleep(4000);
+
             rbEarnAtLeastYes.IsPresent()?.WaitForElementToBeClickable().Click();
 
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
 
             rbTemporaryEmployerNo.IsPresent()?.JSClick();
 

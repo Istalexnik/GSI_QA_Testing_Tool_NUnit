@@ -10,12 +10,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-        public static int[] Type { get; private set; } = {};
-        public static string Site { get; private set; } = "AZ QA";
+        public static int[] Type { get; private set; } = {2};
+        public static string Site { get; private set; } = "IA UAT";
         public static string SSN { get; private set; } = "";
-        public static bool useTwoEmployers  { get; private set; } = false;
         public static string? Employer1 { get; private set; } = "";
         public static string? Employer2 { get; private set; } = "";
+        public static bool useTwoEmployers { get; private set; } = false;
         public static string FirstName { get; private set; } = "";
         public static string LastName { get; private set; } = "";
         public static string DOB { get; private set; } = "";
