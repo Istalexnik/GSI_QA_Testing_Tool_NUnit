@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
@@ -17,7 +18,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_220_BenefitsRightsInformation()
         {
-
+       
         if (!rbIWantToPrintLater.FindIt()) { return; }
 
             rbIWantToPrintLater.Click();

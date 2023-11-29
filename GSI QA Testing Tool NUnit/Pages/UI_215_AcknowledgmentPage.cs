@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GSI_QA_Testing_Tool_NUnit.Data;
 using static GSI_QA_Testing_Tool_NUnit.SeleniumExtensions;
-
+using System.Threading;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
@@ -23,13 +23,16 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             txtName.IsPresent()?.SendKeys($"{TestData.FirstName} {TestData.LastName}");
             txtDate.IsPresent()?.SendKeys(DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy"));
 
-            if (new[] {"PA", "PR", "LA"}.Any(site => TestData.Site.Contains(site)))
+            if (new[] { "PA", "PR", "LA" }.Any(site => TestData.Site.Contains(site)))
             {
                 btnNext2.Click();
             }
             else
             {
-                btnNext.Click();
+
+                    btnNext.Click();
+
+
             }
 
         }

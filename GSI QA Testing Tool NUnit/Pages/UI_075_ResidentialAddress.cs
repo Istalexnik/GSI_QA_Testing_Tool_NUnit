@@ -38,7 +38,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             cbSameAddress.Click();
 
-            btnNext.Click();
+            btnNext.WaitForElementToBeClickable().Click();
 
         }
 

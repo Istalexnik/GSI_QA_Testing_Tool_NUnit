@@ -27,7 +27,7 @@ namespace GSI_QA_Testing_Tool_NUnit
     new Environment("PR STAGING", "https://staging-app-vos72000000.geosolinc.com/vosnet/default.aspx", "00780", "Puerto Rico", "PR", "Target", "Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("DC UAT", "https://uat-app-vos11000000-ui.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "SERDINO INC", "Tampa Toyota", "GSISA0", "GeoDCGUSSol22*@"),
     new Environment("DC QA", "https://qa-app-vos11000000-ui.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
-    new Environment("DC STAGING", "https://staging-app-vos11000000-ui.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Publix", "Tampa Toyota", "GSISA0", "GeoDCGUSSol22*@"),
+    new Environment("DC STAGING", "https://staging-app-vos11000000-ui.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Toyota Motor North America Inc", "Tampa Toyota", "GSISA0", "GeoDCGUSSol22*@"),
     new Environment("DC PFL UAT", "https://uat-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("DC PFL CUAT", "https://cuat-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
     new Environment("DC PFL STAGING", "https://staging-app-vos11980000.geosolinc.com/vosnet/default.aspx", "20010", "District of Columbia", "DC", "Target", "Tampa Toyota", "GSISA0", "GeoIAGUSSol22*@"),
