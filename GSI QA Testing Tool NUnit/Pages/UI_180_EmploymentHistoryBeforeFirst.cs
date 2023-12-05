@@ -14,6 +14,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By titlePreviousEmploymentHistory = By.XPath("(//h2[text()='Previous Employment History'])");
 
+        By titleYourEmploymentHistory = By.XPath("(//h2[text()='Your Employment History'])");
+
+
         By rbAddEmployerYes = By.Id("ctl00_Main_content_rblAddAnotherEntry_0");
         By rbAddEmployerNo = By.Id("ctl00_Main_content_rblAddAnotherEntry_1");
 
@@ -27,7 +30,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_180_EmploymentHistoryBeforeFirst()
         {
-            if (TestData.Type.Contains(6))
+            if (TestData.Type.Contains(7))
             {
                 rbAddEmployerNo.Click();
             }
@@ -41,6 +44,10 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             else if (titlePreviousEmploymentHistory.FindIt())
             {
                 linkSelect.Click();
+                rbDidYouWorkForYes.Click();
+            }
+            else if (titleYourEmploymentHistory.FindIt())
+            {
                 rbDidYouWorkForYes.Click();
             }
             else 

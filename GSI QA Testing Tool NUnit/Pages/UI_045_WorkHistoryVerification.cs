@@ -17,7 +17,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         public UI_045_WorkHistoryVerification()
         {
 
-            if (TestData.Type.Contains(6))
+            if (TestData.Type.Contains(7))
             {
                 rbDidYouWorkNo.Click();
             }
@@ -25,6 +25,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             {
                 rbDidYouWorkYes.Click();
             }
+            rbDidYouWorkYes.Click();
+
 
             btnNext.Click();
 

@@ -44,8 +44,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 rbMajorDisasterYes.Click();
                 ddWhatState.SelectDropdownByIndex("1");
                 ddWhatDisaster.SelectDropdownByIndex("1");
-                ddWhatCounty.WaitForElementToBeStaleAndRefind().SelectDropdownByIndex("1");
-                rbLiveInCountyYes.WaitForElementToBeStaleAndRefind().Click();
+                ddWhatCounty.WaitForElementToBeVisible(20).SelectDropdownByIndex("1");
+                rbLiveInCountyYes.WaitForElementToBeStaleAndRefind(20).Click();
                 rbWorkInCountyYes.Click();
                 rbTravelInCountyYes.Click();
                 rbYourEmployerUnableToOperateNo.Click();
