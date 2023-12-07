@@ -101,6 +101,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Tests
 
             new UI_205_UnemploymentInsuranceClaimConfirmation();
 
+            new UI_206_Resume();
+
             new UI_207_DUALateFiling();
 
             new UI_208_DUAQuestions();
