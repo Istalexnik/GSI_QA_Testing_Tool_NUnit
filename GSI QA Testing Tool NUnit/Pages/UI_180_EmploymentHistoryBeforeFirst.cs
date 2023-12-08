@@ -39,6 +39,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 if (!titlePartiallyCompletedEmploymentHistory.FindIt())
                 {
                     linkEdit.Click();
+                    return;
                 }
             }
             else if (titlePreviousEmploymentHistory.FindIt())
