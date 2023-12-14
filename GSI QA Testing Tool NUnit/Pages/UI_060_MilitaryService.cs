@@ -35,6 +35,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbPhysicalDisabilityNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblDischargePhysicalDisability_1']");
         By rbMilitaryRetireeNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblMilitaryRetiree_1']");
         By rbCompletedFirstTermNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblCompletedFirstFullTermDuty_1']");
+        By rbAppliedForEduAllowanceNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblReceivingAnEducationalAllowance_1']");
         By rbAppliedForAllowanceNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblSubsistenceVocRehabTraining_1']");
         By rbAppliedForAssistanceNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucMilitaryService_rblWarOrphanWidowsEducationAllowance_1']");
 
@@ -74,6 +75,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 rbPhysicalDisabilityNo.Click();
                 rbMilitaryRetireeNo.Click();
                 rbCompletedFirstTermNo.Click();
+                rbAppliedForEduAllowanceNo.IsPresent()?.Click();
                 rbAppliedForAllowanceNo.Click();
                 rbAppliedForAssistanceNo.IsPresent()?.Click();
                 btnNext.Click();

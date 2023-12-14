@@ -76,8 +76,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 btnNext.Click();
 
                 //employer info
-                spanFIC.Click();
-                inputFIC.SendKeys(Keys.Down + Keys.Down + Keys.Tab).WaitForElementToBeStaleAndRefind(); ;
+               // spanFIC.IsPresent()?.Click();  //not needed? at least for AZ and IA
+                inputFIC.SendKeys(Keys.Down + Keys.Down + Keys.Down + Keys.Tab).WaitForElementToBeStaleAndRefind(); ;
                 ddDestinationCode.SelectDropdownByIndex("1").WaitForElementToBeStaleAndRefind();
                 rbOtherEmploymentNo.IsPresent()?.Click();
                 ddStateOfEmployment.SelectDropdownByValue(TestData.StateAbbreviation).WaitForElementToBeStaleAndRefind();
