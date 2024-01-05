@@ -27,7 +27,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             txtAddress1.WaitForElementToBeClickable().SendKeys(TestData.Address1);
 
-            if (new[] { "LA", "IA", "AZ" }.Any(site => TestData.Site.Contains(site)))
+            if (new[] { "IA", "AZ UAT" }.Any(site => TestData.Site.Contains(site)))
             {
                 txtAddress1.SendKeys(Keys.Tab).WaitForElementToBeStaleAndRefind();
             }

@@ -27,6 +27,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_105_EmploymentStatus()
         {
+            if (new[] { "PFL" }.Any(site => TestData.Site.Contains(site))) { return; }
 
             rbAcceptJobIfOfferedYes.IsPresent()?.Click();
 

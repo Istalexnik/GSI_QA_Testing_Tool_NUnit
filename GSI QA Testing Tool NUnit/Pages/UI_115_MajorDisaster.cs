@@ -29,10 +29,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbStartNewPlaceNo = By.CssSelector("label[for='ctl00_Main_content_ucUIDUA_radAbleToReachNewPlaceOfEmployment_1']");
         By rbBreadWinnerNo = By.CssSelector("label[for='ctl00_Main_content_ucUIDUA_radBreadwinner_1']");
         By rbInjuryNo = By.CssSelector("label[for='ctl00_Main_content_ucUIDUA_radInjury_1']");
+        By rbFishermanNo = By.CssSelector("label[for='ctl00_Main_content_ucUIDUA_radFisherman_1']");
         By rbAgriculturalSeasonalNo = By.CssSelector("label[for='ctl00_Main_content_ucUIDUA_radAgriculturalSeasonal_1']");
         By btnNext = By.Id("ctl00_Main_content_btnNext");
         public UI_115_MajorDisaster()
         {
+            if (new[] { "PFL" }.Any(site => TestData.Site.Contains(site))) { return; }
+
             if (!rbMajorDisasterNo.FindIt()) { return; }
 
             if (!TestData.Type.Contains(6))
@@ -58,6 +61,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 rbStartNewPlaceNo.Click();
                 rbBreadWinnerNo.Click();
                 rbInjuryNo.Click();
+                rbFishermanNo.IsPresent()?.Click();
                 rbAgriculturalSeasonalNo.Click();
             }
             btnNext.Click();

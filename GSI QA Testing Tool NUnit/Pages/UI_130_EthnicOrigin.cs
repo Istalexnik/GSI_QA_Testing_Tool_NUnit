@@ -15,6 +15,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         By rbLimitedEnglishNo = By.Id("ctl00_Main_content_ucEthnicity_rblLangSecondary_1");
 
+        By ddMaritalStatus = By.Id("ctl00_Main_content_ucEthnicity_ddlMaritalStatus");
+
+
         By btnNext = By.Id("ctl00_Main_content_btnNext");
         public UI_130_EthnicOrigin()
         {
@@ -23,6 +26,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             cbRace.Click();
 
             rbLimitedEnglishNo.IsPresent()?.Click();
+
+            ddMaritalStatus.IsPresent()?.SelectDropdownByIndex("1");
 
             btnNext.Click();
         }

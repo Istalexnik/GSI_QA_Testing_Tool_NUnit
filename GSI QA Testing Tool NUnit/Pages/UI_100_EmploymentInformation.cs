@@ -34,9 +34,16 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_100_EmploymentInformation()
         {
+            if (new[] { "PFL" }.Any(site => TestData.Site.Contains(site))) { return; }
+
             if (!titleEmploymentInformation.FindIt()) { return; }
 
             ddCurrentEmpStatus.SelectDropdownByValue("3");
+
+            //if (new[] { "AZ" }.Any(site => TestData.Site.Contains(site))) { 
+            //    btnNext.Click();
+            //    return;
+            //}
 
             ddTypeOfBusiness.IsPresent()?.SelectDropdownByIndex("1");
 
@@ -48,13 +55,15 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             //    ddUnempEligibilityStatus.WaitForElementToBeStaleAndRefind();
             //}
 
-            rbLookingForWorkYes.IsPresent()?.Click();
+
 
             rbCovid19No.IsPresent()?.Click();
 
             rbApprenticeshipNo.IsPresent()?.Click();
 
             rbCertificationsNo.IsPresent()?.Click();
+
+            rbLookingForWorkYes.IsPresent()?.WaitForElementToBeClickable().Click();
 
             rbDomesticViolenceNo.IsPresent()?.Click();
 

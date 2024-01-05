@@ -11,6 +11,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 {
     public class UI_055_FederalService
     {
+
         By rbFederalCivilianEmployeeNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblFederalCivilianEmployee_1']");
         By rbFederalCivilianEmployeeYes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblFederalCivilianEmployee_0']");
         By rbInHostStateYes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_rblFederalCivilianEmployeeHostState_0']");
@@ -54,6 +55,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_055_FederalService()
         {
+            if (!rbFederalCivilianEmployeeNo.FindIt()) { return; }
 
             if (!TestData.Type.Contains(3))
             {

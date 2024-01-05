@@ -16,6 +16,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_045_WorkHistoryVerification()
         {
+            if (!rbDidYouWorkYes.FindIt()) { return; }
 
             if (TestData.Type.Contains(7))
             {

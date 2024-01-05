@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_095_EducationInformation()
         {
+            if (new[] { "PFL" }.Any(site => TestData.Site.Contains(site))) { return; }
+
+
             ddHighestLevelEducation.IsPresent()?.SelectDropdownByIndex("1");
 
             ddAttendingSchool.IsPresent()?.SelectDropdownByValue("4");

@@ -10,9 +10,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-        public static int[] Type { get; private set; } = {};
-        public static string Site { get; private set; } = "IA QA";
-        public static string SSN { get; private set; } = "";
+        public static int[] Type { get; private set; } = {2,3};
+        public static string Site { get; private set; } = "AZ UAT";
+        public static string SSN { get; private set; } = "434231004";
         public static string? Employer1 { get; private set; } = "";
         public static string? Employer2 { get; private set; } = "";
         public static bool useTwoEmployers { get; private set; } = false;
@@ -42,7 +42,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 SSN = DataGenerator.GenerateRandomNumbers(1, "234567") + DataGenerator.GenerateRandomNumbers(8);
             }
 
-            Environment? selectedEnvironment = envs.FirstOrDefault(e => e.SiteName == Site);
+            Environment? selectedEnvironment = envs.FirstOrDefault(e => e.SiteName.ToLower() == Site.ToLower());
             if (selectedEnvironment != null)
             {
                 Url = selectedEnvironment.SiteUrl;
@@ -79,7 +79,21 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
                 DOB = "11/11/1959";
             }
 
-            Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "01";
+            //switch (Site)
+            //{
+            //    case "PR":
+            //        Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "01";
+            //        break;
+            //    default:
+            //        Username = "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "1";
+            //        break;
+            //}
+
+            Username = Site switch
+            {
+                _ when new[] { "PR" }.Any(site => TestData.Site.Contains(site)) => "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "01",
+                _ => "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "1"
+            };
 
             if (String.IsNullOrWhiteSpace(Email))
             {

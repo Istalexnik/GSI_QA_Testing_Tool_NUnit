@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using GSI_QA_Testing_Tool_NUnit.Data;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_125_JobTitle()
         {
+            if (new[] { "PFL" }.Any(site => TestData.Site.Contains(site))) { return; }
+
             txtJobTitle.EnterText("Test", txtSuggestions);
 
             WaitForSuggestions(ddJobOccupation).SelectDropdownByIndex("1");

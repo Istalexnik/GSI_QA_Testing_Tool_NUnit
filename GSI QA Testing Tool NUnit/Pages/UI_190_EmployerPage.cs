@@ -243,7 +243,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
             rbWorkersCompensationDidNo.IsPresent()?.Click();
 
-            //Thread.Sleep(30000);
+           //Thread.Sleep(30000);
 
             btnNext.Click();
 

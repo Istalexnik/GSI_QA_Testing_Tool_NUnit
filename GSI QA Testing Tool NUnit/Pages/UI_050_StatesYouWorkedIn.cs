@@ -35,6 +35,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_050_StatesYouWorkedIn()
         {
+            if (!rbWorkedInTwoStatesNo.FindIt()) { return; }
+
             if (!TestData.Type.Contains(4))
             {
                 rbWorkedInTwoStatesNo.Click();

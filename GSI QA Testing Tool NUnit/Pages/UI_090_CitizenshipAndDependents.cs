@@ -20,6 +20,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_090_CitizenshipAndDependents()
         {
+            if (!ddCitizenship.FindIt()) { return; }
+
             rbDependents.IsPresent()?.Click();
 
             ddHowManyDependents.IsPresent()?.SelectDropdownByIndex("1");

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSI_QA_Testing_Tool_NUnit.Pages
@@ -42,6 +43,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
 
         public UI_060_MilitaryService()
         {
+            if (!rbMilitaryServiceNo.FindIt()) { return; }
+
             if (!TestData.Type.Contains(2))
             {
                 rbMilitaryServiceNo.Click();
@@ -54,6 +57,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 txtAddress.IsPresent()?.SendKeys(TestData.Address1);
                 txtZip.IsPresent()?.SendKeys(TestData.Zip);
                 txtCity.IsPresent()?.SendKeys("City");
+                //Thread.Sleep(20000);
                 btnNext.Click();
 
                 //adding employer
