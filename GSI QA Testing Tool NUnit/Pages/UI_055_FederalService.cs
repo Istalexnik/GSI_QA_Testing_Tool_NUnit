@@ -31,10 +31,13 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
         By rbOtherEmploymentNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_rblInterveningEmploymentSinceSeparation_1']");
         By ddStateOfEmployment = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_ddlStateOfEmployment");
         By txtCity = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_txtOutofCountryCity");
+        By txtCity2 = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_txtCityOfEmployment");
+        
         By rbForm8Yes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_rblReceiveStandardForm8_0']");
         By rbForm50Yes = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_rblReceiveStandardForm50_0']");
         By txtWorkBeginDate = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_txtDateBeganWork");
         By txtWorkEndDate = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_txtLastDayWorked");
+        By txtSearationpDate = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_txtSeparationDate");
         By ddSeparationReason = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_ddlReasonForSeparation");
         By rbGovernmentShutdownNo = By.CssSelector("label[for='ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_rblSepDueToGovShutdown_1']");
         By ddEmployerCategory = By.Id("ctl00_Main_content_Wizard1_ucFederalGovernmentEmployment_ddlEmployerNAICS");
@@ -65,8 +68,8 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             else
             {
                 rbFederalCivilianEmployeeYes.Click();
-                rbInHostStateYes.Click();
-                btnOk.Click();
+                rbInHostStateYes.IsPresent()?.Click();
+                btnOk.IsPresent()?.Click();
                 rbInAnotherStateNo.IsPresent()?.Click();
                 rbWagesAssignedOtherStateNo.IsPresent()?.Click();
                 rbOutsideOfUSNo.IsPresent()?.Click();
@@ -84,10 +87,12 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
                 rbOtherEmploymentNo.IsPresent()?.Click();
                 ddStateOfEmployment.SelectDropdownByValue(TestData.StateAbbreviation).WaitForElementToBeStaleAndRefind();
                 txtCity.IsPresent()?.SendKeys("City");
+                txtCity2.IsPresent()?.SendKeys("City");
                 rbForm8Yes.Click();
                 rbForm50Yes.Click();
                 txtWorkBeginDate.SendKeys(TestData.WorkBeginDate1);
                 txtWorkEndDate.SendKeys(TestData.WorkEndDate1);
+                txtSearationpDate.IsPresent()?.SendKeys(TestData.WorkEndDate1);
                 ddSeparationReason.SelectDropdownByPartialText("Lay");
                 rbGovernmentShutdownNo.IsPresent()?.Click();
                 ddEmployerCategory.IsPresent()?.SelectDropdownByIndex("1");

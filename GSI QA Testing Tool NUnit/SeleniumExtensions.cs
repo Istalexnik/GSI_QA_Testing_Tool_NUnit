@@ -289,6 +289,19 @@ namespace GSI_QA_Testing_Tool_NUnit
                 && Driver.FindElement(locator).Enabled ;
         }
 
+        public static By? IsEnabled(this By locator)
+        {
+            if (Driver.FindElement(locator).Displayed
+                && Driver.FindElement(locator).Enabled)
+            {
+                return locator;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// Sends the specified text to the element determined by the locator.
         /// </summary>

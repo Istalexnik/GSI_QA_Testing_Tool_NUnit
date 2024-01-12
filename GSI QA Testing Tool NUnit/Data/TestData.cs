@@ -12,7 +12,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
     {
         public static int[] Type { get; private set; } = {2,3};
         public static string Site { get; private set; } = "AZ UAT";
-        public static string SSN { get; private set; } = "434231004";
+        public static string SSN { get; private set; } = "334241002";
         public static string? Employer1 { get; private set; } = "";
         public static string? Employer2 { get; private set; } = "";
         public static bool useTwoEmployers { get; private set; } = false;

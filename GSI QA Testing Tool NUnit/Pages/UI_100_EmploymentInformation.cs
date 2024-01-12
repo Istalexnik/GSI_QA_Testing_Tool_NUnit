@@ -45,15 +45,16 @@ namespace GSI_QA_Testing_Tool_NUnit.Pages
             //    return;
             //}
 
+
             ddTypeOfBusiness.IsPresent()?.SelectDropdownByIndex("1");
 
             ddUnempEligibilityStatus.IsPresent()?.SelectDropdownByIndex("1");
 
+            if (new[] { "LA" }.Any(site => TestData.Site.Contains(site)))
+            {
+                ddUnempEligibilityStatus.WaitForElementToBeStaleAndRefind();
+            }
 
-            //if (!new[] { "NE", "AZ"}.Any(site => TestData.Site.Contains(site)))
-            //{
-            //    ddUnempEligibilityStatus.WaitForElementToBeStaleAndRefind();
-            //}
 
 
 
