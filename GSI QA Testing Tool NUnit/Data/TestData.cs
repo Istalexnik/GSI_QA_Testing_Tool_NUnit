@@ -10,9 +10,9 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
 {
     public static class TestData
     {
-        public static int[] Type { get; private set; } = {2,3};
-        public static string Site { get; private set; } = "AZ UAT";
-        public static string SSN { get; private set; } = "334241002";
+        public static int[] Type { get; private set; } = {};
+        public static string Site { get; private set; } = "DC UAT";
+        public static string SSN { get; private set; } = "";
         public static string? Employer1 { get; private set; } = "";
         public static string? Employer2 { get; private set; } = "";
         public static bool useTwoEmployers { get; private set; } = false;
@@ -92,6 +92,7 @@ namespace GSI_QA_Testing_Tool_NUnit.Data
             Username = Site switch
             {
                 _ when new[] { "PR" }.Any(site => TestData.Site.Contains(site)) => "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "01",
+               // _ when new[] { "AZ" }.Any(site => TestData.Site.Contains(site)) => "GSIUIAI" + DataGenerator.GenerateRandomNumbers(7),
                 _ => "GSIUIAI" + DataGenerator.GenerateRandomLetters(7) + "1"
             };
 
